@@ -1,0 +1,7 @@
+#include "anim_slash.inc.c"
+#include "anim_idle.inc.c"
+#include "anim_walk.inc.c"
+#include "anim_run.inc.c"
+#include "anim_startshoot.inc.c"
+#include "anim_shoot.inc.c"
+#include "anim_endshoot.inc.c"

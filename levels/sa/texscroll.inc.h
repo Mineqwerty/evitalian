@@ -1,0 +1,15 @@
+extern void scroll_sa_dl_Circle_mesh_layer_1_vtx_1();
+extern void scroll_sa_dl_Circle_001_mesh_layer_5_vtx_0();
+extern void scroll_sa_dl_Circle_002_mesh_layer_1_vtx_0();
+extern void scroll_sa_dl_Circle_003_mesh_layer_5_vtx_0();
+extern void scroll_sa_dl_Circle_004_mesh_layer_5_vtx_0();
+extern void scroll_sa_dl_Circle_006_mesh_layer_1_vtx_0();
+extern void scroll_sa_dl_Circle_007_mesh_layer_1_vtx_0();
+extern void scroll_sa_dl_Circle_010_mesh_layer_1_vtx_0();
+extern void scroll_sts_mat_sa_dl_f3d_material_012_v4();
+extern void scroll_sts_mat_sa_dl_f3d_material_027_v4();
+extern void scroll_sts_mat_sa_dl_f3d_material_028_v4();
+extern void scroll_sa_dl_Plane_013_mesh_layer_1_vtx_0();
+extern void scroll_sa_dl_Plane_022_mesh_layer_1_vtx_0();
+extern void scroll_sa_dl_Plane_048_mesh_layer_1_vtx_0();
+extern void scroll_sa();

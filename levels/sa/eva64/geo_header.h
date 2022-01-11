@@ -1,0 +1,17 @@
+extern const GeoLayout eva64_geo[];
+extern Lights1 eva64_Material_005_f3d_lights;
+extern Lights1 eva64_Material_002_Logo_grp_png_f3d_lights;
+extern u8 eva64_da_da_dllaaaa_da_ci8[];
+extern u8 eva64_da_da_dllaaaa_da_ci8_pal_rgba16[];
+extern u8 eva64_AB9BB93_c_ci8[];
+extern u8 eva64_AB9BB93_c_ci8_pal_rgba16[];
+extern Vtx eva64_Logo_mesh_layer_1_vtx_0[452];
+extern Gfx eva64_Logo_mesh_layer_1_tri_0[];
+extern Vtx eva64_Logo_mesh_layer_1_vtx_1[268];
+extern Gfx eva64_Logo_mesh_layer_1_tri_1[];
+extern Gfx mat_eva64_Material_005_f3d[];
+extern Gfx mat_revert_eva64_Material_005_f3d[];
+extern Gfx mat_eva64_Material_002_Logo_grp_png_f3d[];
+extern Gfx mat_revert_eva64_Material_002_Logo_grp_png_f3d[];
+extern Gfx eva64_Logo_mesh_layer_1[];
+extern Gfx eva64_material_revert_render_settings[];
