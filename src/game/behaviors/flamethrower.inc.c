@@ -56,8 +56,8 @@ void bhv_flamethrower_loop(void) {
         flameTimeRemaining = 1;
         if (o->oTimer < 60) {
             flameTimeRemaining = 15;
-        } else if (o->oTimer < 74) {
-            flameTimeRemaining = 75 - o->oTimer; // Range: [15..2]
+        } else if (o->oTimer < 124) {
+            flameTimeRemaining = 125 - o->oTimer; // Range: [15..2]
         } else {
             o->oAction++;
         }

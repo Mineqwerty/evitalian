@@ -542,5 +542,28 @@ extern const BehaviorScript bhvGeofrontElevator[];
 extern const BehaviorScript bhvCustomCamVolume[];
 extern const BehaviorScript bhvCustomCamVolumeCamPos[];
 extern const BehaviorScript bhvCustomCamVolumeCamFocus[];
+extern const BehaviorScript bhvGenericNPC[];
+extern const BehaviorScript bhvFirstTimeInNervCutscene[];
+extern const BehaviorScript bhvEviUnit[];
+extern const BehaviorScript bhvSachiel[];
+extern const BehaviorScript bhvSachielCross[];
+extern const BehaviorScript bhvSachielCrossHitbox[];
+extern const BehaviorScript bhvEviKnifeHitbox[];
+extern const BehaviorScript bhvATField[];
+extern const BehaviorScript bhvSachielHurtEviHitbox[];
+extern const BehaviorScript bhvPostSachielCutscene[];
+extern const BehaviorScript bhvPreRamielCutscene[];
+extern const BehaviorScript bhvRamiel[];
+extern const BehaviorScript bhvRamielDrill[];
+extern const BehaviorScript bhvRamielHurt[];
+extern const BehaviorScript bhvRamielCharge[];
+extern const BehaviorScript bhvRamielBeam[];
+extern const BehaviorScript bhvRamielBeamHitbox[];
+extern const BehaviorScript bhvRamielShard[];
+extern const BehaviorScript bhvPostRamielCutscene[];
+extern const BehaviorScript bhvBoworu[];
+extern const BehaviorScript bhvBoworuDeathCutscene[];
+extern const BehaviorScript bhvStaticModel[];
+extern const BehaviorScript bhvHospitalCutscene[];
 
 #endif // BEHAVIOR_DATA_H

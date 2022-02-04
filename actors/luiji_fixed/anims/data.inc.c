@@ -1,0 +1,6 @@
+#include "anim_mario_geoAction.inc.c"
+#include "anim_cower.inc.c"
+#include "anim_mario_geoAction_001.inc.c"
+#include "anim_luiji_sad.inc.c"
+#include "anim_walk.inc.c"
+#include "anim_sneeze.inc.c"

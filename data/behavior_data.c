@@ -1901,6 +1901,7 @@ const BehaviorScript bhvBulletBill[] = {
     SET_INT(oDamageOrCoinValue, 3),
     SCALE(/*Unused*/ 0, /*Field*/ 40),
     SET_INT(oIntangibleTimer, 0),
+    SET_FLOAT(oDrawingDistance, 32000),
     SET_OBJ_PHYSICS(/*Wall hitbox radius*/ 30, /*Gravity*/ 0, /*Bounciness*/ 0, /*Drag strength*/ 0, /*Friction*/ 0, /*Buoyancy*/ 0, /*Unused*/ 0, 0),
     CALL_NATIVE(bhv_bullet_bill_init),
     BEGIN_LOOP(),
@@ -5996,6 +5997,7 @@ const BehaviorScript bhvEndBirds2[] = {
     END_LOOP(),
 };
 
+//CUTSCENES
 const BehaviorScript bhvIntroScene[] = {
     BEGIN(OBJ_LIST_DEFAULT),
     OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
@@ -6003,6 +6005,61 @@ const BehaviorScript bhvIntroScene[] = {
         CALL_NATIVE(bhv_intro_scene_loop),
     END_LOOP(),
 };
+
+const BehaviorScript bhvFirstTimeInNervCutscene[] = {
+    BEGIN(OBJ_LIST_DEFAULT),
+    OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
+    CALL_NATIVE(bhv_general_cutscene_init),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_first_time_in_nerv_cutscene),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvPostSachielCutscene[] = {
+    BEGIN(OBJ_LIST_DEFAULT),
+    OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
+    CALL_NATIVE(bhv_general_cutscene_init),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_post_sachiel),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvPreRamielCutscene[] = {
+    BEGIN(OBJ_LIST_DEFAULT),
+    OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
+    CALL_NATIVE(bhv_general_cutscene_init),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_pre_ramiel),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvPostRamielCutscene[] = {
+    BEGIN(OBJ_LIST_DEFAULT),
+    OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
+    CALL_NATIVE(bhv_general_cutscene_init),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_post_ramiel),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvBoworuDeathCutscene[] = {
+    BEGIN(OBJ_LIST_DEFAULT),
+    OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE | OBJ_FLAG_COMPUTE_DIST_TO_MARIO),
+    CALL_NATIVE(bhv_general_cutscene_init),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_boworu_death),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvHospitalCutscene[] = {
+    BEGIN(OBJ_LIST_DEFAULT),
+    OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE | OBJ_FLAG_COMPUTE_DIST_TO_MARIO),
+    CALL_NATIVE(bhv_general_cutscene_init),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_hospital_cutscene),
+    END_LOOP(),
+};
+//END CUTSCENES
 
 const BehaviorScript bhvCustomCam[] = {
     BEGIN(OBJ_LIST_DEFAULT),
@@ -6107,5 +6164,183 @@ const BehaviorScript bhvGeofrontElevator[] = {
         CALL_NATIVE(bhv_geofront_elevator_loop),
         CALL_NATIVE(load_object_collision_model),
         
+    END_LOOP(),
+};
+
+const BehaviorScript bhvGenericNPC[] = {
+    BEGIN(OBJ_LIST_GENACTOR),
+    OR_INT(oFlags, (OBJ_FLAG_COMPUTE_ANGLE_TO_MARIO | OBJ_FLAG_HOLDABLE | OBJ_FLAG_COMPUTE_DIST_TO_MARIO | OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE)),
+    SET_INTERACT_TYPE(INTERACT_TEXT),
+    //DROP_TO_FLOOR(),
+    SET_HITBOX(/*Radius*/ 100, /*Height*/ 60),
+    SET_INT(oBobombBuddyRole, 0),
+    CALL_NATIVE(bhv_generic_npc_init),
+    BEGIN_LOOP(),
+        SET_INT(oIntangibleTimer, 0),
+        CALL_NATIVE(bhv_bobomb_buddy_loop),
+        CALL_NATIVE(bhv_generic_npc_loop),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvEviUnit[] = {
+    BEGIN(OBJ_LIST_GENACTOR),
+    OR_INT(oFlags, (OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW  | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE)),
+    SET_OBJ_PHYSICS(/*Wall hitbox radius*/ 300, /*Gravity*/ -400, /*Bounciness*/ -50, /*Drag strength*/ 1000, /*Friction*/ 1000, /*Buoyancy*/ 200, /*Unused*/ 0, 0),
+    LOAD_ANIMATIONS(oAnimations, evi_unit_anims),
+    CALL_NATIVE(bhv_evi_unit_init),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_evi_unit_loop),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvSachiel[] = {
+    BEGIN(OBJ_LIST_GENACTOR),
+    OR_INT(oFlags, (OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW  | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE | OBJ_FLAG_COMPUTE_DIST_TO_MARIO )),
+    SET_OBJ_PHYSICS(/*Wall hitbox radius*/ 300, /*Gravity*/ -400, /*Bounciness*/ -50, /*Drag strength*/ 1000, /*Friction*/ 1000, /*Buoyancy*/ 200, /*Unused*/ 0, 0),
+    SET_HITBOX(/*Radius*/ 200, /*Height*/ 1000),
+    SET_HURTBOX(/*Radius*/ 100, /*Height*/ 1000),
+    LOAD_ANIMATIONS(oAnimations, sachiel_anims),
+    SET_FLOAT(oDrawingDistance, 32000),
+    CALL_NATIVE(bhv_sachiel_init),
+    ANIMATE(0),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_sachiel_loop),
+        SET_INT(oInteractStatus, 0),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvRamiel[] = {
+    BEGIN(OBJ_LIST_GENACTOR),
+    OR_LONG(oFlags, (OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW  | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE | OBJ_FLAG_COMPUTE_DIST_TO_MARIO | OBJ_FLAG_UCODE_LARGE)),
+    //SET_OBJ_PHYSICS(/*Wall hitbox radius*/ 300, /*Gravity*/ -400, /*Bounciness*/ -50, /*Drag strength*/ 1000, /*Friction*/ 1000, /*Buoyancy*/ 200, /*Unused*/ 0, 0),
+    SET_HITBOX(/*Radius*/ 200, /*Height*/ 1000),
+    SET_HURTBOX(/*Radius*/ 100, /*Height*/ 1000),
+    //LOAD_ANIMATIONS(oAnimations, sachiel_anims),
+    SET_FLOAT(oDrawingDistance, 32000),
+    CALL_NATIVE(bhv_ramiel_init),
+    //ANIMATE(0),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_ramiel_loop),
+        SET_INT(oInteractStatus, 0),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvBoworu[] = {
+    BEGIN(OBJ_LIST_GENACTOR),
+    OR_LONG(oFlags, (OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW  | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE | OBJ_FLAG_COMPUTE_DIST_TO_MARIO | OBJ_FLAG_UCODE_LARGE)),
+    //SET_OBJ_PHYSICS(/*Wall hitbox radius*/ 300, /*Gravity*/ -400, /*Bounciness*/ -50, /*Drag strength*/ 1000, /*Friction*/ 1000, /*Buoyancy*/ 200, /*Unused*/ 0, 0),
+    SET_HITBOX(/*Radius*/ 200, /*Height*/ 1000),
+    SET_HURTBOX(/*Radius*/ 100, /*Height*/ 1000),
+    LOAD_ANIMATIONS(oAnimations, boworu_anims),
+    SET_FLOAT(oDrawingDistance, 32000),
+    CALL_NATIVE(bhv_boworu_init),
+    ANIMATE(2),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_boworu_loop),
+        SET_INT(oInteractStatus, 0),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvRamielDrill[] = {
+    BEGIN(OBJ_LIST_GENACTOR),
+    OR_LONG(oFlags, (OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW  | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE | OBJ_FLAG_COMPUTE_DIST_TO_MARIO | OBJ_FLAG_UCODE_LARGE)),
+    SET_FLOAT(oDrawingDistance, 32000),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_drill_loop),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvRamielHurt[] = {
+    BEGIN(OBJ_LIST_GENACTOR),
+    OR_LONG(oFlags, (OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW  | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE | OBJ_FLAG_COMPUTE_DIST_TO_MARIO | OBJ_FLAG_UCODE_LARGE)),
+    SET_FLOAT(oDrawingDistance, 32000),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_ramiel_hurt_model_loop),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvRamielCharge[] = {
+    BEGIN(OBJ_LIST_GENACTOR),
+    OR_LONG(oFlags, (OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW  | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE | OBJ_FLAG_COMPUTE_DIST_TO_MARIO | OBJ_FLAG_UCODE_LARGE)),
+    SET_FLOAT(oDrawingDistance, 32000),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_ramiel_charge_loop),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvRamielBeam[] = {
+    BEGIN(OBJ_LIST_GENACTOR),
+    OR_LONG(oFlags, (OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW  | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE | OBJ_FLAG_COMPUTE_DIST_TO_MARIO | OBJ_FLAG_UCODE_LARGE)),
+    SET_FLOAT(oDrawingDistance, 32000),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_ramiel_beam_loop),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvRamielBeamHitbox[] = {
+    BEGIN(OBJ_LIST_GENACTOR),
+    OR_LONG(oFlags, (OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW  | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE | OBJ_FLAG_COMPUTE_DIST_TO_MARIO | OBJ_FLAG_UCODE_LARGE)),
+    SET_FLOAT(oDrawingDistance, 32000),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_ramiel_beam_hitbox_loop),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvRamielShard[] = {
+    BEGIN(OBJ_LIST_GENACTOR),
+    OR_LONG(oFlags, (OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW | OBJ_FLAG_MOVE_XZ_USING_FVEL | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE | OBJ_FLAG_COMPUTE_DIST_TO_MARIO | OBJ_FLAG_UCODE_LARGE)),
+    SET_FLOAT(oDrawingDistance, 32000),
+    SET_HOME(),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_ramiel_shard_loop),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvSachielCross[] = {
+    BEGIN(OBJ_LIST_GENACTOR),
+    OR_INT(oFlags, (OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW  | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE | OBJ_FLAG_COMPUTE_DIST_TO_MARIO )),
+    SET_FLOAT(oDrawingDistance, 32000),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_cross_loop),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvSachielCrossHitbox[] = {
+BEGIN(OBJ_LIST_DEFAULT),
+    OR_INT(oFlags, (OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW  | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE | OBJ_FLAG_MOVE_XZ_USING_FVEL | OBJ_FLAG_COMPUTE_DIST_TO_MARIO )),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_cross_hitbox_loop),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvEviKnifeHitbox[] = {
+    BEGIN(OBJ_LIST_DEFAULT),
+    OR_INT(oFlags, (OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW  | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE )),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_evi_knife_hitbox_loop),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvATField[] = {
+    BEGIN(OBJ_LIST_DEFAULT),
+    OR_INT(oFlags, (OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW  | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE )),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_at_field_loop),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvSachielHurtEviHitbox[] = {
+    BEGIN(OBJ_LIST_DEFAULT),
+    OR_INT(oFlags, (OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW  | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE | OBJ_FLAG_COMPUTE_DIST_TO_MARIO )),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_sachiel_hurt_evi_hitbox_loop),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvStaticModel[] = {
+    BEGIN(OBJ_LIST_DEFAULT),
+    OR_INT(oFlags, (OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW  | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE )),
+    BEGIN_LOOP(),
+
     END_LOOP(),
 };

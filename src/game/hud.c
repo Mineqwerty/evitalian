@@ -18,6 +18,7 @@
 #include "puppycam2.h"
 #include "puppyprint.h"
 #include "src/game/cutscene_dialog.h"
+#include "src/game/hud_textures.h"
 
 #include "config.h"
 
@@ -396,6 +397,18 @@ void render_debug_mode(void) {
 #endif
 
 void render_cutscene_text(void) {
+    extern const Texture textbox_texture[];
+
+    if (gDialogIndex >= 3 && gCurrLevelNum != LEVEL_CCM && gCurrLevelNum != LEVEL_LLL) {
+    gSPDisplayList(gDisplayListHead++, dl_hud_img_begin);
+    render_multi_image(&textbox_texture, 32, 170, 256, 64, 1, 1, G_CYC_COPY);
+    gSPDisplayList(gDisplayListHead++, dl_hud_img_end);
+    }
+
+    //update_dialog_speaker_color();
+
+    //print_set_envcolour(dialogSpeakerColors[3*gDialogSpeaker],dialogSpeakerColors[3*gDialogSpeaker + 1],dialogSpeakerColors[3*gDialogSpeaker + 2],255);
+
     if (gSkipIntro > 0) {
         gSkipIntro -= 1;
         print_small_text(10, 10, "PRESS START TO SKIP", PRINT_TEXT_ALIGN_LEFT, PRINT_ALL, FONT_OUTLINE);
@@ -406,13 +419,248 @@ void render_cutscene_text(void) {
             print_small_text(SCREEN_WIDTH/2, 148, "HACKERSM64", PRINT_TEXT_ALIGN_CENTRE, PRINT_ALL, FONT_OUTLINE);
             print_small_text(SCREEN_WIDTH/2, 68, "Made with", PRINT_TEXT_ALIGN_CENTRE, PRINT_ALL, FONT_OUTLINE);
             break;
-            default:
+            case 1:
         print_small_text(SCREEN_WIDTH/2, 88, dialogs[gDialogIndex], PRINT_TEXT_ALIGN_CENTRE, PRINT_ALL, FONT_OUTLINE);
+        break;
+        default:
+        s2d_init();
+        uObjMtx *buffer;
+	// substitute with a different alloc function as neccesary
+	buffer = alloc_display_list(0x400 * sizeof(uObjMtx));
+     
+	s2d_print(50, 180, ALIGN_LEFT, dialogs[gDialogIndex], buffer);
+    s2d_handle_deferred();
+	s2d_stop(); 
         break;
         }
     }
 }
 
+void render_a_button_prompt(void) {
+    
+    if (gAButtonPrompt == 1) {
+        static int isDisplaying;
+        if (gGlobalTimer % 30 == 0) {
+            isDisplaying = 1;
+        }
+        else if (gGlobalTimer % 15 == 0) {
+            isDisplaying = 0;
+        }
+        if (isDisplaying == 0) {
+            print_set_envcolour(250,250,250,255);
+            print_small_text(268, 214, "A", PRINT_TEXT_ALIGN_LEFT, PRINT_ALL, FONT_OUTLINE);
+        }
+        if (isDisplaying == 1) {
+            print_set_envcolour(155,155,155,255);
+            print_small_text(268, 214, "A", PRINT_TEXT_ALIGN_LEFT, PRINT_ALL, FONT_OUTLINE);
+        }
+    }
+
+    if (gAButtonPrompt == 2) {
+        static int isDisplaying;
+        if (gGlobalTimer % 30 == 0) {
+            isDisplaying = 2;
+        }
+        else if (gGlobalTimer % 15 == 0) {
+            isDisplaying = 3;
+        }
+        if (isDisplaying == 2) {
+            print_set_envcolour(148, 42, 10, 255);
+            print_small_text(120, 40, "A", PRINT_TEXT_ALIGN_LEFT, PRINT_ALL, FONT_OUTLINE);
+        }
+        if (isDisplaying == 3) {
+            print_set_envcolour(74, 71, 70, 255);
+            print_small_text(120, 40, "A", PRINT_TEXT_ALIGN_LEFT, PRINT_ALL, FONT_OUTLINE);
+        }
+    }
+}
+
+void render_battle_a_button_prompt(void) {
+    
+    if (gAButtonPrompt == 1) {
+        static int isDisplaying;
+        if (gGlobalTimer % 30 == 0) {
+            isDisplaying = 1;
+        }
+        else if (gGlobalTimer % 15 == 0) {
+            isDisplaying = 0;
+        }
+        if (isDisplaying == 0) {
+            print_set_envcolour(255,255,255,255);
+            print_small_text(214, 224, "A", PRINT_TEXT_ALIGN_LEFT, PRINT_ALL, FONT_OUTLINE);
+        }
+        if (isDisplaying == 1) {
+            print_set_envcolour(155,155,155,255);
+            print_small_text(214, 224, "A", PRINT_TEXT_ALIGN_LEFT, PRINT_ALL, FONT_OUTLINE);
+        }
+    }
+}
+
+void update_dialog_speaker_color(void) {
+    switch (gDialogIndex) {
+        case 3:
+        case 4:
+        case 5:
+        case 8:
+        case 14:
+        case 18:
+        case 19:
+        //Luiji
+        gDialogSpeaker = 1;
+        break;
+
+        case 6:
+        case 7:
+        case 9:
+        case 15:
+        case 16:
+        case 17:
+        case 20:
+        //Genddo
+        gDialogSpeaker = 2;
+        break;
+
+        case 10:
+        case 11:
+        case 12:
+        case 13:
+        //Peasato
+        gDialogSpeaker = 3;
+        break;
+
+        default:
+        gDialogSpeaker = 0;
+        break;
+    }
+}
+
+void render_evi_hud(void) {
+    extern const Texture evi_hud[];
+    extern const Texture evi_textbox[];
+    extern const Texture peasato_portrait[];
+    extern const Texture daisuka_portrait[];
+
+    print_evi_health();
+    print_angel_health();
+    
+    gSPDisplayList(gDisplayListHead++, dl_hud_img_begin);
+    render_multi_image(&evi_hud, 0, 0, 320, 240, 1, 1, G_CYC_COPY);
+
+    if (gBattleDialogIndex > 0) {
+    render_multi_image(&evi_textbox, 96, 203, 128, 32, 1, 1, G_CYC_COPY);
+    switch (gBattleTipIndex) {
+        case 5:
+        case 7:
+        case 9:
+            render_multi_image(&daisuka_portrait, 12, 173, 64, 64, 1, 1, G_CYC_COPY);
+        break;
+
+    default:
+    render_multi_image(&peasato_portrait, 12, 173, 64, 64, 1, 1, G_CYC_COPY);
+    break;
+    }
+    render_battle_s2dex();
+    }
+
+    gSPDisplayList(gDisplayListHead++, dl_hud_img_end);
+
+    print_set_envcolour(250,250,250,255);
+    print_small_text(33, 2, "EVITALIAN", PRINT_TEXT_ALIGN_CENTRE, PRINT_ALL, FONT_OUTLINE);
+    print_small_text(288, 2, "ANGEL", PRINT_TEXT_ALIGN_CENTRE, PRINT_ALL, FONT_OUTLINE);
+
+    if (gMarioState->deathTimer > -1) {
+        char text[14];
+
+    sprintf(text, "TIME %2.2f", gMarioState->deathTimer);
+        print_small_text(244, 224, text, PRINT_TEXT_ALIGN_LEFT, PRINT_ALL, FONT_OUTLINE);
+
+        gMarioState->deathTimer -= 1.0f/30.0f;
+        
+    }
+    
+
+    
+    
+}
+
+#include "src/s2d_engine/init.h"
+#include "src/s2d_engine/s2d_draw.h"
+#include "src/s2d_engine/s2d_print.h"
+#include "src/s2d_engine/config.h"
+
+void mtx_pipeline2(uObjMtx *m, int x, int y, int scale) {
+    // init
+    Mat4 tmp, rot, scal, translate;
+    guMtxIdentF(tmp);
+    guScaleF(scal, scale, scale, 0);
+    guTranslateF(translate, x, y, 0);
+
+    mtxf_mul(tmp, tmp, scal);
+    mtxf_mul(tmp, tmp, rot);
+    mtxf_mul(tmp, tmp, translate);
+
+    gu_to_gs2dex(m, tmp);
+
+    gSPObjMatrix(gdl_head++, m);
+}
+
+Gfx s2d_sprite_init_dl[] = {
+	gsDPPipeSync(),
+	gsDPSetTexturePersp(G_TP_NONE),
+	gsDPSetTextureLOD(G_TL_TILE),
+	gsDPSetTextureLUT(G_TT_NONE),
+	gsDPSetTextureConvert(G_TC_FILT),
+	gsDPSetAlphaCompare(G_AC_THRESHOLD),
+	gsDPSetBlendColor(0, 0, 0, 0x01),
+	gsDPSetCombineMode(G_CC_DECALRGBA, G_CC_DECALRGBA),
+	gsSPEndDisplayList(),
+};
+
+void render_battle_s2dex(void) {
+    s2d_init();
+    static int curDialog;
+    static int tipTimer;
+        uObjMtx *buffer;
+        uObjMtx *buffer2;
+        uObjMtx *buffer3;
+	// substitute with a different alloc function as neccesary
+	buffer = alloc_display_list(0x400 * sizeof(uObjMtx));
+    buffer2 = alloc_display_list(0x400 * sizeof(uObjMtx));
+    buffer3 = alloc_display_list(0x400 * sizeof(uObjMtx));
+
+if (gBattleDialogIndex == 99) {
+    for (int i = 0; i < 20; i++) {
+        if (gBattleTips[i] == 1 && curDialog == 0) {
+            tipTimer = 120;
+            curDialog = i;
+            gBattleTipIndex = i;
+            gBattleTips[i] = 2;
+        }
+    }
+
+    if (curDialog > 0 && tipTimer > 0) {
+        s2d_print(108, 212, ALIGN_LEFT, tipDialogs[curDialog], buffer);
+        tipTimer -= 1;
+        if (tipTimer == 0) {
+            gBattleDialogIndex = 0;
+            curDialog = 0;
+            gBattleTipIndex = 0;
+        }
+    }
+}
+else {
+	s2d_print(108, 212, ALIGN_LEFT, battleDialogs[gBattleDialogIndex], buffer);
+
+
+    //#include "src/game/portraits.h"
+    //gSPDisplayList(gDisplayListHead++, peach_portrait_bg_dl);
+    
+    
+	// reloads the original microcode; only needed once after all prints
+    s2d_handle_deferred();
+	s2d_stop(); 
+}
+}
 /**
  * Renders the amount of coins collected.
  */
@@ -569,7 +817,7 @@ void render_hud(void) {
             render_hud_mario_lives();
         }
     #endif
-    if (gCurrLevelNum != LEVEL_SA) {
+    if (gCutsceneID == 0 && gCurrLevelNum != LEVEL_CCM && gCurrLevelNum != LEVEL_LLL && gCurrAreaIndex != 6) {
         if (hudDisplayFlags & HUD_DISPLAY_FLAG_COIN_COUNT  ) render_hud_coins();
         if (hudDisplayFlags & HUD_DISPLAY_FLAG_STAR_COUNT  ) render_hud_stars();
         if (hudDisplayFlags & HUD_DISPLAY_FLAG_KEYS        ) render_hud_keys();
@@ -598,7 +846,22 @@ void render_hud(void) {
         }
     #endif
 
-    render_cutscene_text();
+    if (gCurrLevelNum == LEVEL_CCM || gCurrLevelNum == LEVEL_LLL) {
+        render_evi_hud();
+        render_battle_a_button_prompt();
+    }
+    else if (gCurrLevelNum == LEVEL_WF && gCurrAreaIndex == 6) {
+        render_evi_hud();
+        render_battle_a_button_prompt();
+    }
+    else {
+        render_cutscene_text();
+        render_a_button_prompt();
+    }
+    
+    
+
+    
 
     #ifdef PUPPYPRINT
     print_set_envcolour(255,255,255,255);

@@ -12,3 +12,9 @@
 #include "levels/wmotr/areas/1/model.inc.c"
 #include "levels/wmotr/areas/1/collision.inc.c"
 #include "levels/wmotr/areas/1/macro.inc.c"
+
+#include "levels/wmotr/buppith/model.inc.c"
+#include "levels/wmotr/td_backdrop/model.inc.c"
+#include "levels/wmotr/leveldata.inc.c"
+
+#include "levels/wmotr/evi_boworu/model.inc.c"

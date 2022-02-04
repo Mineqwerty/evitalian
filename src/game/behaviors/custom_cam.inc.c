@@ -15,6 +15,7 @@ void bhv_custom_cam_loop(void) {
           gMarioState->pos[0] = o->oPosX;
           gMarioState->pos[1] = o->oPosY;
           gMarioState->pos[2] = o->oPosZ;
+          gCamera->cutscene = 1;
      }
     
     if (o->oCutsceneIndex != gCutsceneIndex) {
@@ -41,7 +42,7 @@ void bhv_custom_cam_loop(void) {
      o->oCutsceneIndex = gCutsceneIndex;
     }
 
-    gCamera->cutscene = 1;
+    if (gCutsceneID > 0) {
 
     if (o->oObjCamFocus) {
    gLakituState.goalFocus[0] = o->oObjCamFocus->oPosX;
@@ -53,7 +54,7 @@ void bhv_custom_cam_loop(void) {
          gLakituState.goalFocus[1] = gMarioState->pos[1];
          gLakituState.goalFocus[2] = gMarioState->pos[2];
     }
-
+    }
      if (o->oObjCamApproach) {
           if (o->oFramesLeftOnApproach > 0) {
           cam_approach((o->oObjCamApproach->oBehParams >> 24));
@@ -63,10 +64,11 @@ void bhv_custom_cam_loop(void) {
      }
 
 
-
+if (gCutsceneID > 0) {
          gLakituState.goalPos[0] = o->oPosX;
          gLakituState.goalPos[1] = o->oPosY;
          gLakituState.goalPos[2] = o->oPosZ;
+}
 }
 
 void bhv_custom_cam_focus_loop(void) {
@@ -102,7 +104,6 @@ void bhv_custom_cam_volume_loop(void) {
      if (gMarioState->pos[0] < (o->oPosX + (o->oBehParams2ndByte * 100)) && gMarioState->pos[0] > (o->oPosX - (o->oBehParams2ndByte * 100)) && gMarioState->pos[1] < (o->oPosY + (o->oBehParams2ndByte * 100)) && gMarioState->pos[1] > (o->oPosY - (o->oBehParams2ndByte * 100)) && gMarioState->pos[2] < (o->oPosZ + (o->oBehParams2ndByte * 100)) && gMarioState->pos[2] > (o->oPosZ - (o->oBehParams2ndByte * 100))) {
                o->oMarioInRange = 1;
                gCamera->cutscene = 1;
-
                
 
                o->oObjCameraVolumeCam = cur_obj_find_object_with_bparam_2nd_byte(bhvCustomCamVolumeCamPos, o->oBehParams >> 24);
@@ -123,6 +124,51 @@ void bhv_custom_cam_volume_loop(void) {
                          gLakituState.goalFocus[2] = gMarioState->pos[2];
                     }
                }
+
+               //COURSE SPECIFIC BEHAVIORS
+               if (gCurrLevelNum == LEVEL_WF && o->oBehParams2ndByte == 7) {
+                    o->oVolumeTimer += 1;
+
+                    gMarioState->pos[0] = o->oPosX;
+                    gMarioState->pos[2] = o->oPosZ;
+                    gMarioState->faceAngle[1] = -0x4000;
+
+                    if (o->oVolumeTimer < 60) {
+                         cur_obj_play_sound_1(SOUND_ENV_ELEVATOR1);
+                         gMarioState->action = ACT_WAITING_FOR_DIALOG;
+                    }
+                    if (o->oVolumeTimer == 61) {
+                         cur_obj_play_sound_1(SOUND_GENERAL_BREAK_BOX);
+                         cur_obj_shake_screen(2);
+                    }
+
+                    if (o->oVolumeTimer > 70 && o->oVolumeTimer < 100) {
+                         if (!o->oObjGenericVolObj1) {
+                              o->oObjGenericVolObj1 = spawn_object_relative(1, 0, 0, 0, o, MODEL_LUIJI_FIXED, bhvGenericNPC);
+                         }
+                         #include "actors/luiji_fixed/anim_header.h"
+                         if (o->oObjGenericVolObj1) {
+                              o->oObjGenericVolObj1->oAnimations = luiji_fixed_anims;
+                              geo_obj_init_animation(&o->oObjGenericVolObj1->header.gfx, &o->oObjGenericVolObj1->oAnimations[2]);
+                              o->oObjGenericVolObj1->header.gfx.animInfo.animFrame = 0;
+                              o->oObjGenericVolObj1->header.gfx.animInfo.animFrameAccelAssist = 1;
+                         }
+                         if (o->oVolumeTimer == 97) {
+                             play_sound(SOUND_LUIGI_HURT, gGlobalSoundSource);
+                         }
+                    }
+
+                    if (o->oVolumeTimer < 90) {
+                         gMarioState->pos[1] = o->oPosY;
+                         gMarioState->action = ACT_WAITING_FOR_DIALOG;
+                    }
+
+                    if (o->oVolumeTimer == 91) {
+                         gMarioState->action = ACT_HARD_BACKWARD_AIR_KB;
+                    }
+               }
+
+
           }
 
      else if (o->oMarioInRange == 1) {
@@ -151,8 +197,10 @@ void bhv_custom_cam_volume_focus_loop(void) {
      if (gCurrLevelNum == LEVEL_BOB) {
           struct Object *corCamPos;
           corCamPos = cur_obj_find_object_with_bparam_2nd_byte(bhvCustomCamVolumeCamPos, 1);
+          if (corCamPos) {
           if (o->oPosY > corCamPos->oPosY) {
                o->oPosY -= 60;
+          }
           }
      }
 }

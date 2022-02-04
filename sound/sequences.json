@@ -128,5 +128,17 @@
     ],
     "24_custom_fly_me_to_the_moon": [
         "streamed_audio"
+    ],
+    "25_custom_triumphant": [
+        "streamed_audio"
+    ],
+    "26_custom_decisive": [
+        "streamed_audio"
+    ],
+    "27_custom_ode": [
+        "streamed_audio"
+    ],
+    "28_custom_air": [
+        "streamed_audio"
     ]
 }

@@ -141,7 +141,12 @@ static int s2d_snprint(int x, int y, int align, const char *str, uObjMtx *buf, i
 					case ALIGN_RIGHT:
 						x = orig_x - s2d_width(str, line, len);
 				}
-				y += TEX_HEIGHT / TEX_RES;
+				//if (gCurrLevelNum == LEVEL_CCM) {
+				y += TEX_HEIGHT / 2;
+				//}
+				//else {
+				//	y += TEX_HEIGHT;
+				//}
 				break;
 			case '\t':
 				x += TAB_WIDTH_H / TEX_RES;

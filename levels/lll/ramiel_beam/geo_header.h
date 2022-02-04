@@ -1,0 +1,18 @@
+extern const GeoLayout ramiel_beam_geo[];
+extern Lights1 ramiel_beam_f3d_material_013_lights;
+extern u8 ramiel_beam_beamenv_ci4[];
+extern u8 ramiel_beam_beamenv_ci4_pal_rgba16[];
+extern u8 ramiel_beam_shoonen3_ia8[];
+extern Vtx ramiel_beam_Circle_003_mesh_layer_1_vtx_cull[8];
+extern Vtx ramiel_beam_Circle_003_mesh_layer_1_vtx_0[43];
+extern Gfx ramiel_beam_Circle_003_mesh_layer_1_tri_0[];
+extern Vtx ramiel_beam_Circle_003_mesh_layer_4_vtx_cull[8];
+extern Vtx ramiel_beam_Circle_003_mesh_layer_4_vtx_0[26];
+extern Gfx ramiel_beam_Circle_003_mesh_layer_4_tri_0[];
+extern Gfx mat_ramiel_beam_f3d_material_012[];
+extern Gfx mat_revert_ramiel_beam_f3d_material_012[];
+extern Gfx mat_ramiel_beam_f3d_material_013[];
+extern Gfx mat_revert_ramiel_beam_f3d_material_013[];
+extern Gfx ramiel_beam_Circle_003_mesh_layer_1[];
+extern Gfx ramiel_beam_Circle_003_mesh_layer_4[];
+extern Gfx ramiel_beam_material_revert_render_settings[];

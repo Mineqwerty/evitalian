@@ -5,3 +5,7 @@
 #include "anim_startshoot.inc.c"
 #include "anim_shoot.inc.c"
 #include "anim_endshoot.inc.c"
+#include "anim_guard.inc.c"
+#include "anim_endguard.inc.c"
+#include "anim_guardwalk.inc.c"
+#include "anim_knockback.inc.c"

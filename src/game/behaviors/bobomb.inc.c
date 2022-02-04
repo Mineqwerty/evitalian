@@ -286,13 +286,15 @@ void bobomb_buddy_act_idle(void) {
     o->oBobombBuddyPosYCopy = o->oPosY;
     o->oBobombBuddyPosZCopy = o->oPosZ;
 
+    if (o->oBehParams2ndByte != 0) {
     object_step();
+    }
 
-    if ((animFrame == 5) || (animFrame == 16))
-        cur_obj_play_sound_2(SOUND_OBJ_BOBOMB_WALK);
+    //if ((animFrame == 5) || (animFrame == 16))
+        //cur_obj_play_sound_2(SOUND_OBJ_BOBOMB_WALK);
 
-    if (o->oDistanceToMario < 1000.0f)
-        o->oMoveAngleYaw = approach_s16_symmetric(o->oMoveAngleYaw, o->oAngleToMario, 0x140);
+    //if (o->oDistanceToMario < 1000.0f)
+        //o->oMoveAngleYaw = approach_s16_symmetric(o->oMoveAngleYaw, o->oAngleToMario, 0x140);
 
     if (o->oInteractStatus == INT_STATUS_INTERACTED)
         o->oAction = BOBOMB_BUDDY_ACT_TURN_TO_TALK;
@@ -378,12 +380,18 @@ void bobomb_buddy_act_talk(void) {
 
 void bobomb_buddy_act_turn_to_talk(void) {
     s16 animFrame = o->header.gfx.animInfo.animFrame;
-    if ((animFrame == 5) || (animFrame == 16))
-        cur_obj_play_sound_2(SOUND_OBJ_BOBOMB_WALK);
+    //if ((animFrame == 5) || (animFrame == 16))
+        //cur_obj_play_sound_2(SOUND_OBJ_BOBOMB_WALK);
+
+        if (o->oBehParams2ndByte == 1) {
+            o->oAction = BOBOMB_BUDDY_ACT_TALK;
+        }
+        else {
 
     o->oMoveAngleYaw = approach_s16_symmetric(o->oMoveAngleYaw, o->oAngleToMario, 0x1000);
     if ((s16) o->oMoveAngleYaw == (s16) o->oAngleToMario)
         o->oAction = BOBOMB_BUDDY_ACT_TALK;
+        }
 
     cur_obj_play_sound_2(SOUND_ACTION_READ_SIGN);
 }
@@ -403,13 +411,13 @@ void bobomb_buddy_actions(void) {
             break;
     }
 
-    set_object_visibility(o, 3000);
+    //set_object_visibility(o, 3000);
 }
 
 void bhv_bobomb_buddy_loop(void) {
     bobomb_buddy_actions();
 
-    curr_obj_random_blink(&o->oBobombBuddyBlinkTimer);
+    //curr_obj_random_blink(&o->oBobombBuddyBlinkTimer);
 
     o->oInteractStatus = 0;
 }

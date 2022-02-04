@@ -358,4 +358,24 @@ extern const Gfx white_particle_small_unused_dl[];
 
 
 #include "evi_unit/anim_header.h"
+
+#include "luiji_fixed/anim_header.h"
+#include "luiji_fixed/geo_header.h"
+
+
+#include "e_genddo/anim_header.h"
+
+#include "peasato/anim_header.h"
+#include "sachiel/geo_header.h"
+
+
+#include "sachiel/anim_header.h"
+#include "at_field/geo_header.h"
+
+#include "daisuka/geo_header.h"
+
+
+#include "daisuka/anim_header.h"
+
+#include "reisalina/anim_header.h"
 #endif

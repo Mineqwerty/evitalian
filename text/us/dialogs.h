@@ -37,43 +37,31 @@ characters by facing them\n\
 and pressing [B]."))
 
 DEFINE_DIALOG(DIALOG_001, 1, 4, 95, 200, _("\
-Watch out! If you wander\n\
-around here, you're liable\n\
-to be " PLASTERED " by a\n\
-water bomb!\n\
-Those enemy Bob-ombs love\n\
-to fight, and they're\n\
-always finding ways to\n\
-attack.\n\
-This meadow has become\n\
-a battlefield ever since\n\
-the Big Bob-omb got his\n\
-paws on the Power Star.\n\
-Can you recover the Star\n\
-for us? Cross the bridge\n\
-and go left up the path\n\
-to find the Big Bob-omb.\n\
-Please come back to see\n\
-me after you've retrieved\n\
-the Power Star!"))
+Ouch...\n\
+That REALLY hurt.\n\
+Why did the elevator\n\
+track suddenly stop?\n\
+I need a moment bro.\n\
+Go on without me, I'll\n\
+catch up."))
 
 DEFINE_DIALOG(DIALOG_002, 1, 4, 95, 200, _("\
-Hey, you! It's dangerous\n\
-ahead, so listen up! Take\n\
-my advice.\n\
+Ah, you finally made it\n\
+bro. This is the entrance\n\
+we were told about.\n\
+Pretty hidden, huh?\n\
+Still, it's not like\n\
+Professor E. Genddo\n\
+wanted to see us...\n\
 \n\
-Cross the two\n\
-bridges ahead, then\n\
-watch for falling\n\
-water bombs.\n\
-The Big Bob-omb at the\n\
-top of the mountain is\n\
-very powerful--don't let\n\
-him grab you!\n\
-We're Bob-omb Buddies,\n\
-and we're on your side.\n\
-You can talk to us\n\
-whenever you'd like to!"))
+He only calls us when\n\
+he needs us. This is\n\
+the first time we get\n\
+to even see this place!\n\
+I guess we have no\n\
+choice though. Let's\n\
+take this elevator and\n\
+see what he wants."))
 
 DEFINE_DIALOG(DIALOG_003, 1, 5, 95, 200, _("\
 Thank you, Mario! The Big\n\
@@ -223,52 +211,27 @@ Do you want to Save?\n\
 \n\
 //You Bet//Not Now"))
 
-DEFINE_DIALOG(DIALOG_015, 1, 4, 30, 200, _("\
-You can punch enemies to\n\
-knock them down. Press [A]\n\
-to jump, [B] to punch.\n\
-Press [A] then [B] to Kick.\n\
-To pick something up,\n\
-press [B], too. To throw\n\
-something you're holding,\n\
-press [B] again."))
+DEFINE_DIALOG(DIALOG_015, 1, 3, 30, 200, _("\
+I'm terribly sorry you\n\
+two have to do this...\n\
+Good luck out there!"))
 
-DEFINE_DIALOG(DIALOG_016, 1, 3, 30, 200, _("\
-Hop on the shiny shell and\n\
-ride wherever you want to\n\
-go! Shred those enemies!"))
+DEFINE_DIALOG(DIALOG_016, 1, 2, 30, 200, _("\
+You're wasting time.\n\
+Go at once."))
 
 DEFINE_DIALOG(DIALOG_017, 1, 4, 30, 200, _("\
-I'm the Big Bob-omb, lord\n\
-of all blasting matter,\n\
-king of ka-booms the\n\
-world over!\n\
-How dare you scale my\n\
-mountain? By what right\n\
-do you set foot on my\n\
-imperial mountaintop?\n\
-You may have eluded my\n\
-guards, but you'll never\n\
-escape my grasp...\n\
-\n\
-...and you'll never take\n\
-away my Power Star. I\n\
-hereby challenge you,\n\
-Mario!\n\
-If you want the Star I\n\
-hold, you must prove\n\
-yourself in battle.\n\
-\n\
-Can you pick me up from\n\
-the back and hurl me to\n\
-this royal turf? I think\n\
-that you cannot!"))
+You go find Daisuka \n\
+without me bro...\n\
+I need to process what\n\
+just happened..."))
 
-DEFINE_DIALOG(DIALOG_018, 1, 4, 30, 200, _("\
-I'm sleeping because...\n\
-...I'm sleepy. I don't\n\
-like being disturbed.\n\
-Please walk quietly."))
+DEFINE_DIALOG(DIALOG_018, 1, 5, 30, 200, _("\
+I... I don't know\n\
+if I can do this...\n\
+But I guess we'll be\n\
+ok with you there\n\
+bro."))
 
 DEFINE_DIALOG(DIALOG_019, 1, 2, 30, 200, _("\
 Shhh! Please walk\n\
@@ -282,28 +245,33 @@ a cake for you.\n\
 Yours truly--\n\
 Princess Toadstool"))
 
-DEFINE_DIALOG(DIALOG_021, 1, 5, 95, 200, _("\
-Welcome.\n\
-No one's home!\n\
-Now " SCRAM "\n\
-and don't come back!\n\
-Gwa ha ha!"))
+DEFINE_DIALOG(DIALOG_021, 1, 3, 95, 200, _("\
+K.O.O.P.A...\n\
+What could they be\n\
+after?"))
 
-DEFINE_DIALOG(DIALOG_022, 1, 2, 95, 200, _("\
-You need a key to open\n\
-this door."))
+DEFINE_DIALOG(DIALOG_022, 1, 3, 95, 200, _("\
+Sigh... what do you want?\n\
+I know, I know...\n\
+I need to be on standby.\n\
+Hmm... maybe I should\n\
+just clock you on the\n\
+head. Then I get to pilot!\n\
+Kidding, I'm kidding...\n\
+Alright, let's head back\n\
+through this hole then."))
 
 DEFINE_DIALOG(DIALOG_023, 1, 3, 95, 200, _("\
-This key doesn't fit!\n\
-Maybe it's for the\n\
-basement..."))
+Hurry!\n\
+Time is of the\n\
+essence!"))
 
 DEFINE_DIALOG(DIALOG_024, 1, 5, 95, 200, _("\
-You need Star power to\n\
-open this door. Recover a\n\
-Power Star from an enemy\n\
-inside one of the castle's\n\
-paintings."))
+What's going on?\n\
+Grr... I wish I could\n\
+be the one to pilot.\n\
+I'll help Peasato give\n\
+you tips instead..."))
 
 DEFINE_DIALOG(DIALOG_025, 1, 4, 95, 200, _("\
 It takes the power of\n\

@@ -102,7 +102,13 @@ extern s8 sTimerRunning;
 extern s8 gCutsceneIndex;
 extern s8 gDialogIndex;
 extern s8 gSkipIntro;
+extern s8 gDialogSpeaker;
 extern s8 gCutsceneID;
+extern s8 gAButtonPrompt;
+extern s8 gBattleDialogIndex;
+extern s8 gBattleTips[];
+extern s8 gBattleTipIndex;
+extern void (*gSkyboxDest)(s16 *);
 
 struct HudDisplay {
     /*0x00*/ s16 lives;

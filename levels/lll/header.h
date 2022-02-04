@@ -128,4 +128,19 @@ extern const Gfx lll_dl_lavafall_volcano[];
 // script
 extern const LevelScript level_lll_entry[];
 
+
+#include "levels/lll/header.inc.h"
+
+#include "levels/lll/ramiel/geo_header.h"
+
+#include "levels/lll/ramiel_drill/geo_header.h"
+
+#include "levels/lll/ramiel_hurt/geo_header.h"
+
+#include "levels/lll/ramiel_charge/geo_header.h"
+
+#include "levels/lll/ramiel_beam/geo_header.h"
+
+#include "levels/lll/ramiel_shard/geo_header.h"
+
 #endif

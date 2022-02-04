@@ -621,11 +621,11 @@ void apply_vertical_wind(struct MarioState *m) {
     f32 offsetY;
 
     if (m->action != ACT_GROUND_POUND) {
-        offsetY = m->pos[1] - -1500.0f;
+        offsetY = m->pos[1] - -500.0f;
 
         if (m->floor->type == SURFACE_VERTICAL_WIND && -3000.0f < offsetY && offsetY < 2000.0f) {
             if (offsetY >= 0.0f) {
-                maxVelY = 10000.0f / (offsetY + 200.0f);
+                maxVelY = 150.0f;
             } else {
                 maxVelY = 50.0f;
             }

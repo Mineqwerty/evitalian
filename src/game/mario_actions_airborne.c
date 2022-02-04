@@ -39,6 +39,7 @@ void play_knockback_sound(struct MarioState *m) {
     if (m->actionArg == 0 && (m->forwardVel <= -28.0f || m->forwardVel >= 28.0f)) {
         play_sound_if_no_flag(m, SOUND_MARIO_DOH, MARIO_MARIO_SOUND_PLAYED);
     } else {
+        if (gCurrLevelNum != LEVEL_WF)
         play_sound_if_no_flag(m, SOUND_MARIO_UH, MARIO_MARIO_SOUND_PLAYED);
     }
 }

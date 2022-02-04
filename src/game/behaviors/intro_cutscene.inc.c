@@ -71,7 +71,7 @@ void bhv_intro_cutscene_loop(void) {
         case 662: play_transition(WARP_TRANSITION_FADE_FROM_COLOR, 10, 255, 255, 255);
         
         
-        load_segment_decompress(0x0A, _water_skybox_yay0SegmentRomStart, _water_skybox_yay0SegmentRomEnd);
+        load_segment_decompress_skybox(0x0A, _water_skybox_yay0SegmentRomStart, _water_skybox_yay0SegmentRomEnd);
         break; 
         case 670: gCutsceneIndex = 6;
         break;
@@ -91,7 +91,8 @@ void bhv_intro_cutscene_loop(void) {
         
         break;
         case 1102: play_transition(WARP_TRANSITION_FADE_FROM_COLOR, 10, 255, 255, 255);
-        load_segment_decompress(0x0A, _ssl_skybox_yay0SegmentRomStart, _ssl_skybox_yay0SegmentRomEnd);
+        load_segment_decompress_skybox(0x0A, _ssl_skybox_yay0SegmentRomStart, _ssl_skybox_yay0SegmentRomEnd);
+        
         break;
         case 1120: gCutsceneIndex = 8;
         break;
@@ -173,7 +174,7 @@ void bhv_intro_cutscene_loop(void) {
 
         case 1772: gCutsceneIndex = 25;
         play_transition(WARP_TRANSITION_FADE_FROM_COLOR, 2, 0, 0, 0);
-        load_segment_decompress(0x0A, _water_skybox_yay0SegmentRomStart, _water_skybox_yay0SegmentRomEnd);
+        load_segment_decompress_skybox(0x0A, _water_skybox_yay0SegmentRomStart, _water_skybox_yay0SegmentRomEnd);
         break;
 
         case 1963: gCutsceneIndex = 26;
@@ -199,7 +200,7 @@ void bhv_intro_cutscene_loop(void) {
         case 2048: gCutsceneIndex = 36;
         break;
         case 2055: gCutsceneIndex = 37;
-        load_segment_decompress(0x0A, _wdw_skybox_yay0SegmentRomStart, _wdw_skybox_yay0SegmentRomEnd);
+        load_segment_decompress_skybox(0x0A, _wdw_skybox_yay0SegmentRomStart, _wdw_skybox_yay0SegmentRomEnd);
         break;
         case 2064: gCutsceneIndex = 38;
         break;
@@ -210,7 +211,7 @@ void bhv_intro_cutscene_loop(void) {
         case 2093: gCutsceneIndex = 41;
         break;
         case 2100: gCutsceneIndex = 42;
-        load_segment_decompress(0x0A, _ccm_skybox_yay0SegmentRomStart, _ccm_skybox_yay0SegmentRomEnd);
+        load_segment_decompress_skybox(0x0A, _ccm_skybox_yay0SegmentRomStart, _ccm_skybox_yay0SegmentRomEnd);
         break;
         case 2105: gCutsceneIndex = 43;
         break;
@@ -240,7 +241,7 @@ void bhv_intro_cutscene_loop(void) {
         case 2195: gCutsceneIndex = 55;
         break;
         case 2200: gCutsceneIndex = 56;
-        load_segment_decompress(0x0A, _wdw_skybox_yay0SegmentRomStart, _wdw_skybox_yay0SegmentRomEnd);
+        load_segment_decompress_skybox(0x0A, _wdw_skybox_yay0SegmentRomStart, _wdw_skybox_yay0SegmentRomEnd);
         break;
         case 2205: gCutsceneIndex = 57;
         break;
@@ -249,7 +250,7 @@ void bhv_intro_cutscene_loop(void) {
         case 2220: gCutsceneIndex = 59;
         break;
         case 2235: gCutsceneIndex = 60;
-        load_segment_decompress(0x0A, _ccm_skybox_yay0SegmentRomStart, _ccm_skybox_yay0SegmentRomEnd);
+        load_segment_decompress_skybox(0x0A, _ccm_skybox_yay0SegmentRomStart, _ccm_skybox_yay0SegmentRomEnd);
         break;
         case 2240: gCutsceneIndex = 61;
         break;
@@ -272,12 +273,12 @@ void bhv_intro_cutscene_loop(void) {
         case 2336: gCutsceneIndex = 70;
         break;
         case 2364: gCutsceneIndex = 71;
-        load_segment_decompress(0x0A, _water_skybox_yay0SegmentRomStart, _water_skybox_yay0SegmentRomEnd);
+        load_segment_decompress_skybox(0x0A, _water_skybox_yay0SegmentRomStart, _water_skybox_yay0SegmentRomEnd);
         break;
         case 2402: gCutsceneIndex = 72;
         break;
         case 2425: gCutsceneIndex = 73;
-        load_segment_decompress(0x0A, _ccm_skybox_yay0SegmentRomStart, _ccm_skybox_yay0SegmentRomEnd);
+        load_segment_decompress_skybox(0x0A, _ccm_skybox_yay0SegmentRomStart, _ccm_skybox_yay0SegmentRomEnd);
         break;
         case 2470: gCutsceneIndex = 74;
         break;
@@ -352,6 +353,7 @@ void bhv_intro_generic_object_loop(void) {
 void bhv_switch_animation_init(void) {
     switch (o->oBehParams2ndByte) {
         case 0:
+
         break;
         case 1: o->oAnimations = daisuka_sil_anims;
         cur_obj_init_animation(0);

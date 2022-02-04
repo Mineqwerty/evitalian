@@ -331,7 +331,7 @@
 
 // first set of actor bins (0x54-0x63)
 // group 1
-#define MODEL_BULLET_BILL                 0x54        // bullet_bill_geo
+#define MODEL_BULLET_BILL                 0xFF        // bullet_bill_geo
 #define MODEL_YELLOW_SPHERE               0x55        // yellow_sphere_geo
 #define MODEL_HOOT                        0x56        // hoot_geo
 #define MODEL_YOSHI_EGG                   0x57        // yoshi_egg_geo
@@ -572,6 +572,21 @@
 #define MODEL_LUIJI                0x106
 #define MODEL_REISALINA            0x107
 #define MODEL_EVI            0x108
+#define MODEL_LUIJI_FIXED   0x109
+#define MODEL_E_GENDDO   0x10A
+#define MODEL_EVI_UNIT            0x10B
+#define MODEL_SACHIEL       0x10C
+#define MODEL_SACHIEL_CROSS       0x10D
+#define MODEL_AT_FIELD          0x10E
+#define MODEL_DAISUKA                0x10F
+#define MODEL_RAMIEL       0x110
+#define MODEL_RAMIEL_DRILL       0x111
+#define MODEL_RAMIEL_HURT       0x112
+#define MODEL_RAMIEL_CHARGE       0x113
+#define MODEL_RAMIEL_BEAM       0x114
+#define MODEL_RAMIEL_SHARD       0x115
+#define MODEL_BOWORU       0x116
+#define MODEL_EVI_BOWORU       0x117
 
 #define MODEL_FMTTM        0x120
 #define MODEL_GEOFRONT_ELEVATOR 0x121

@@ -1,0 +1,5 @@
+#include "anim_ArmatureAction.inc.c"
+#include "anim_walk.inc.c"
+#include "anim_fly.inc.c"
+#include "anim_attack.inc.c"
+#include "anim_idle.inc.c"

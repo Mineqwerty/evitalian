@@ -23,3 +23,7 @@
 #include "e_genddo/geo.inc.c"
 
 #include "evi_unit/geo.inc.c"
+#include "luiji_fixed/geo.inc.c"
+#include "sachiel/geo.inc.c"
+#include "at_field/geo.inc.c"
+#include "daisuka/geo.inc.c"

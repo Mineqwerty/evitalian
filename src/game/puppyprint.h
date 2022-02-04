@@ -79,6 +79,8 @@ extern void render_blank_box(s32 x1, s32 y1, s32 x2, s32 y2, s32 r, s32 g, s32 b
 extern void append_puppyprint_log(const char *str, ...);
 extern char consoleLogTable[LOG_BUFFER_SIZE][255];
 
+extern void print_evi_health(void);
+
 #endif
 
 #endif // PUPPYPRINT_H

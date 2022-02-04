@@ -99,4 +99,13 @@ extern const struct MovtexQuadCollection wf_movtex_water[];
 // script
 extern const LevelScript level_wf_entry[];
 
+
+#include "levels/wf/header.inc.h"
+
+#include "levels/wf/daisuka_lying/geo_header.h"
+
+#include "levels/wf/boworu/geo_header.h"
+
+#include "levels/wf/boworu/anim_header.h"
+
 #endif

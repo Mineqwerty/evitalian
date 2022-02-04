@@ -7,7 +7,13 @@
             [1, 32700],
             [32700, 29430],
             "hang"
-        ]
+        ],
+        "envelope1": [
+            [1, 32700],
+            [205, 0],
+            [1, 0],
+            "hang"
+          ]
     },
     "instruments": {
         "inst0": {
@@ -39,6 +45,36 @@
             "release_rate": 208,
             "envelope": "envelope0",
             "sound": "05_heavy_landing"
+        },
+        "inst6": {
+            "release_rate": 208,
+            "envelope": "envelope0",
+            "sound": "06_luigi_hurt"
+        },
+        "inst7": {
+            "release_rate": 100,
+            "envelope": "envelope0",
+            "sound": "07_cross"
+        },
+        "inst8": {
+            "release_rate": 70,
+            "envelope": "envelope0",
+            "sound": "08_at_field"
+        },
+        "inst9": {
+            "release_rate": 70,
+            "envelope": "envelope0",
+            "sound": "09_ramiel_hurt"
+        },
+        "inst10": {
+            "release_rate": 70,
+            "envelope": "envelope0",
+            "sound": "0A_ramiel_beam"
+        },
+        "inst11": {
+            "release_rate": 70,
+            "envelope": "envelope0",
+            "sound": "0B_ramiel_idle"
         }
     },
     "instrument_list": [
@@ -47,6 +83,12 @@
         "inst2",
         "inst3",
         "inst4",
-        "inst5"
+        "inst5",
+        "inst6",
+        "inst7",
+        "inst8",
+        "inst9",
+        "inst10",
+        "inst11"
     ]
 }

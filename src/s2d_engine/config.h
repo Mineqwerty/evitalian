@@ -7,7 +7,7 @@
  * SET YOUR FONT NAME HERE
  */
 #ifndef FONTNAME
-    #define FONTNAME impact
+    #define FONTNAME ubuntu
 #endif
 
 
@@ -64,10 +64,10 @@ extern Gfx *gdl_head;
 extern void *alloc(size_t);
 
 // your init functions for the RDP/RSP
-#define my_rdp_init my_rdp_init
-#define my_rsp_init my_rsp_init
-extern void my_rsp_init(void);
-extern void my_rdp_init(void);
+#define my_rdp_init init_rdp
+#define my_rsp_init init_rsp
+extern void init_rdp(void);
+extern void init_rsp(void);
 
 // The frame timer that is used to time s2d_type_print
 #define s2d_timer gGlobalTimer

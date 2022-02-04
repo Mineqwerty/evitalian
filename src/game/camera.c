@@ -1124,8 +1124,15 @@ void mode_8_directions_camera(struct Camera *c) {
         s8DirModeYawOffset = (s8DirModeYawOffset + 0x1000) & 0xE000;
     }
 #endif
-
+if (gCurrLevelNum == LEVEL_CCM || gCurrLevelNum == LEVEL_LLL) {
+lakitu_zoom(1500.f, 0x900);
+}
+else if (gCurrLevelNum == LEVEL_WF && gCurrAreaIndex == 6) {
+lakitu_zoom(1500.f, 0x900);
+}
+else {
     lakitu_zoom(400.f, 0x900);
+}
     c->nextYaw = update_8_directions_camera(c, c->focus, pos);
     c->pos[0] = pos[0];
     c->pos[2] = pos[2];
@@ -5629,9 +5636,7 @@ struct CameraTrigger sCamCotMC[] = {
  * The CCM triggers are used to set the flag that says when Mario is in the slide shortcut.
  */
 struct CameraTrigger sCamCCM[] = {
-    { 2, cam_ccm_enter_slide_shortcut, -4846, 2061, 27, 1229, 1342, 396, 0 },
-    { 2, cam_ccm_leave_slide_shortcut, -6412, -3917, -6246, 307, 185, 132, 0 },
-    NULL_TRIGGER
+	NULL_TRIGGER
 };
 
 /**
@@ -5764,6 +5769,21 @@ struct CameraTrigger sCamBBH[] = {
  * Each table is terminated with NULL_TRIGGER
  */
 struct CameraTrigger sCamSA[] = {
+	NULL_TRIGGER
+};
+struct CameraTrigger sCamWF[] = {
+	NULL_TRIGGER
+};
+struct CameraTrigger sCamJRB[] = {
+	NULL_TRIGGER
+};
+struct CameraTrigger sCamLLL[] = {
+	NULL_TRIGGER
+};
+struct CameraTrigger sCamWMOtR[] = {
+	NULL_TRIGGER
+};
+struct CameraTrigger sCamTTC[] = {
 	NULL_TRIGGER
 };
 struct CameraTrigger *sCameraTriggers[LEVEL_COUNT + 1] = {
@@ -9960,13 +9980,13 @@ u8 sZoomOutAreaMasks[] = {
 	ZOOMOUT_AREA_MASK(0, 0, 0, 0, 0, 0, 0, 0), // CASTLE_INSIDE  | HMC
 	ZOOMOUT_AREA_MASK(1, 0, 0, 0, 1, 1, 0, 0), // SSL            | BOB
 	ZOOMOUT_AREA_MASK(1, 0, 0, 0, 1, 0, 0, 0), // SL             | WDW
-	ZOOMOUT_AREA_MASK(0, 0, 0, 0, 1, 1, 0, 0), // JRB            | THI
-	ZOOMOUT_AREA_MASK(0, 0, 0, 0, 1, 0, 0, 0), // TTC            | RR
+	ZOOMOUT_AREA_MASK(1, 0, 0, 0, 1, 1, 0, 0), // JRB            | THI
+	ZOOMOUT_AREA_MASK(1, 0, 0, 0, 1, 0, 0, 0), // TTC            | RR
 	ZOOMOUT_AREA_MASK(1, 0, 0, 0, 1, 0, 0, 0), // CASTLE_GROUNDS | BITDW
 	ZOOMOUT_AREA_MASK(0, 0, 0, 0, 1, 0, 0, 0), // VCUTM          | BITFS
 	ZOOMOUT_AREA_MASK(1, 0, 0, 0, 1, 0, 0, 0), // SA             | BITS
 	ZOOMOUT_AREA_MASK(1, 0, 0, 0, 0, 0, 0, 0), // LLL            | DDD
-	ZOOMOUT_AREA_MASK(1, 0, 0, 0, 0, 0, 0, 0), // WF             | ENDING
+	ZOOMOUT_AREA_MASK(1, 1, 1, 1, 0, 0, 0, 0), // WF             | ENDING
 	ZOOMOUT_AREA_MASK(0, 0, 0, 0, 0, 0, 0, 0), // COURTYARD      | PSS
 	ZOOMOUT_AREA_MASK(0, 0, 0, 0, 1, 0, 0, 0), // COTMC          | TOTWC
 	ZOOMOUT_AREA_MASK(1, 0, 0, 0, 1, 0, 0, 0), // BOWSER_1       | WMOTR

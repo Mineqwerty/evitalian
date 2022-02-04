@@ -191,6 +191,12 @@ extern const GeoLayout test_platform_geo[];
 extern const Gfx unknown_seg8_dl_08026260[];
 extern const Collision unknown_seg8_collision_080262F8[];
 
-#include "sachiel/geo_header.h"
+// bullet_bill
+extern const GeoLayout bullet_bill_geo[];
+extern const Gfx bullet_bill_seg5_dl_0500E5E8[];
+extern const Gfx bullet_bill_seg5_dl_0500E678[];
+extern const Gfx bullet_bill_seg5_dl_0500E730[];
+extern const Gfx bullet_bill_seg5_dl_0500E8A8[];
+
 
 #endif

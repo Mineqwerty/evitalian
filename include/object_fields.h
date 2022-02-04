@@ -1278,7 +1278,47 @@
 #define /*0x0F4*/ oMarioInRange                             OBJECT_FIELD_S32(0x1B)
 #define /*0x0F4*/ oObjCameraVolumeCam                              OBJECT_FIELD_OBJ(0x1C)
 #define /*0x0F4*/ oObjCameraVolumeFocus                              OBJECT_FIELD_OBJ(0x1D)
+#define /*0x0F4*/ oVolumeTimer                             OBJECT_FIELD_S32(0x1E)
+#define /*0x0F4*/ oObjGenericVolObj1                              OBJECT_FIELD_OBJ(0x1F)
 
+//geofront elevator
+#define /*0x0F4*/ oObjElevatorLuiji                            OBJECT_FIELD_OBJ(0x1B)
+
+//cutscene 1
+#define /*0x0F4*/ oCutsceneStep                             OBJECT_FIELD_S32(0x1B)
+#define /*0x0F4*/ oNonPersistentCutsceneStep                             OBJECT_FIELD_S32(0x1C)
+#define /*0x0F4*/ oNextStep                                     OBJECT_FIELD_S32(0x1D)
+
+//evitalian
+#define /*0x0F4*/ oStrafeTimer                             OBJECT_FIELD_S32(0x1B)
+#define /*0x0F4*/ oObjEviAT                            OBJECT_FIELD_OBJ(0x1C)
+
+//sachiel
+#define /*0x0F4*/ oObjCrossBeam                            OBJECT_FIELD_OBJ(0x1B)
+#define /*0x0F4*/ oSachielHealth                            OBJECT_FIELD_S32(0x1C)
+#define /*0x0F4*/ oBulletCounter                            OBJECT_FIELD_S32(0x1D)
+#define /*0x0F4*/ oObjSachielAT                            OBJECT_FIELD_OBJ(0x1E)
+
+//ramiel
+#define /*0x0F4*/ oObjRamielBeam                           OBJECT_FIELD_OBJ(0x1B)
+#define /*0x0F4*/ oRamielHealth                            OBJECT_FIELD_S32(0x1C)
+#define /*0x0F4*/ oObjRamielDrill                            OBJECT_FIELD_OBJ(0x1D)
+
+//cross
+#define /*0x0F4*/ oMarioTrapped                             OBJECT_FIELD_S32(0x1B)
+#define /*0x0F4*/ oObjEviTrap                            OBJECT_FIELD_OBJ(0x1C)
+
+//drill
+#define /*0x0F4*/ oDrillHealth                             OBJECT_FIELD_S32(0x1B)
+
+//ramiel shard
+#define /*0x0F4*/ oShardHealthCounter                             OBJECT_FIELD_S32(0x1B)
+
+//at field
+#define /*0x0F4*/ oDeleteMe                             OBJECT_FIELD_S32(0x1B)
+
+//boworu
+#define /*0x0F4*/ oBoworuHealth                            OBJECT_FIELD_S32(0x1B)
 
 /*Custom general defines:
 

@@ -562,6 +562,34 @@ void bhv_geofront_elevator_loop(void);
 void bhv_custom_cam_volume_loop(void);
 void bhv_custom_cam_volume_focus_loop(void);
 void bhv_custom_cam_volume_cam_loop(void);
+void bhv_generic_npc_init(void);
+void bhv_generic_npc_loop(void);
+void bhv_first_time_in_nerv_cutscene(void);
+void bhv_general_cutscene_init(void);
+void bhv_evi_unit_init(void);
+void bhv_evi_unit_loop(void);
+void bhv_sachiel_init(void);
+void bhv_sachiel_loop(void);
+void bhv_cross_loop(void);
+void bhv_cross_hitbox_loop(void);
+void bhv_evi_knife_hitbox_loop(void);
+void bhv_sachiel_hurt_evi_hitbox_loop(void);
+void bhv_at_field_loop(void);
+void bhv_post_sachiel(void);
+void bhv_pre_ramiel(void);
+void bhv_ramiel_init(void);
+void bhv_ramiel_loop(void);
+void bhv_drill_loop(void);
+void bhv_ramiel_hurt_model_loop(void);
+void bhv_ramiel_charge_loop(void);
+void bhv_ramiel_beam_loop(void);
+void bhv_ramiel_beam_hitbox_loop(void);
+void bhv_ramiel_shard_loop(void);
+void bhv_post_ramiel(void);
+void bhv_boworu_init(void);
+void bhv_boworu_loop(void);
+void bhv_boworu_death(void);
+void bhv_hospital_cutscene(void);
 
 Gfx *geo_move_mario_part_from_parent(s32 callContext, UNUSED struct GraphNode *node, Mat4 mtx);
 
@@ -572,6 +600,8 @@ Gfx *geo_switch_bowser_eyes(s32 callContext, struct GraphNode *node, UNUSED Mat4
 
 // Tuxie
 Gfx *geo_switch_tuxie_mother_eyes(s32 callContext, struct GraphNode *node, UNUSED Mat4 *mtx);
+
+Gfx *geo_switch_evi_knife(s32 callContext, struct GraphNode *node, UNUSED Mat4 *mtx);
 
 // Cap switch
 Gfx *geo_update_held_mario_pos(s32 callContext, UNUSED struct GraphNode *node, Mat4 mtx);

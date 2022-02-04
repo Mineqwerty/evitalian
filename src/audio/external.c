@@ -89,11 +89,11 @@ s32 sGameLoopTicked = 0;
 
 u8 sDialogSpeaker[] = {
     //       0      1      2      3      4      5      6      7      8      9
-    /* 0*/ _,     BOMB,  BOMB,  BOMB,  BOMB,  KOOPA, KOOPA, KOOPA, _,     KOOPA,
-    /* 1*/ _,     _,     _,     _,     _,     _,     _,     KBOMB, _,     _,
-    /* 2*/ _,     BOWS1, BOWS1, BOWS1, BOWS1, BOWS1, BOWS1, BOWS1, BOWS1, BOWS1,
-    /* 3*/ _,     _,     _,     _,     _,     _,     _,     DIFF,  _,     _,
-    /* 4*/ _,     KOOPA, _,     _,     _,     _,     _,     BOMB,  _,     _,
+    /* 0*/ _,     _,  _,  _,  _,  _, _, _, _,     _,
+    /* 1*/ _,     _,     _,     _,     _,     _,     _,     _, _,     _,
+    /* 2*/ _,     _, _, _, _, _, _, _, _, _,
+    /* 3*/ _,     _,     _,     _,     _,     _,     _,     _,  _,     _,
+    /* 4*/ _,     _, _,     _,     _,     _,     _,     _,  _,     _,
     /* 5*/ _,     _,     _,     _,     _,     TUXIE, TUXIE, TUXIE, TUXIE, TUXIE,
     /* 6*/ _,     _,     _,     _,     _,     _,     _,     BOWS2, _,     _,
     /* 7*/ _,     _,     _,     _,     _,     _,     _,     _,     _,     UKIKI,
@@ -300,6 +300,10 @@ u8 sBackgroundMusicDefaultVolume[] = {
     70,  // SEQ_EVENT_CUTSCENE_ENDING
     65,  // SEQ_MENU_FILE_SELECT
     0,   // SEQ_EVENT_CUTSCENE_LAKITU (not in JP)
+    127,
+    127,
+    127,
+    127,
     127,
     127,
 };

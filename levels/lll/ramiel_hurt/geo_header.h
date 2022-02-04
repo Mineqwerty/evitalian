@@ -1,0 +1,11 @@
+extern const GeoLayout ramiel_hurt_geo[];
+extern Lights1 ramiel_hurt_f3d_material_009_lights;
+extern u8 ramiel_hurt_ramielhurt_ci8[];
+extern u8 ramiel_hurt_ramielhurt_ci8_pal_rgba16[];
+extern Vtx ramiel_hurt_Icosphere_mesh_layer_1_vtx_cull[8];
+extern Vtx ramiel_hurt_Icosphere_mesh_layer_1_vtx_0[720];
+extern Gfx ramiel_hurt_Icosphere_mesh_layer_1_tri_0[];
+extern Gfx mat_ramiel_hurt_f3d_material_009[];
+extern Gfx mat_revert_ramiel_hurt_f3d_material_009[];
+extern Gfx ramiel_hurt_Icosphere_mesh_layer_1[];
+extern Gfx ramiel_hurt_material_revert_render_settings[];

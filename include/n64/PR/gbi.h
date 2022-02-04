@@ -2526,6 +2526,7 @@ typedef union {
  * uc_start  = ucode text section start
  * uc_dstart = ucode data section start
  */
+
 #define	gSPLoadUcodeEx(pkt, uc_start, uc_dstart, uc_dsize)		\
 {									\
 	Gfx *_g = (Gfx *)(pkt);						\

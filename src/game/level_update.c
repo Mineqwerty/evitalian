@@ -184,7 +184,13 @@ s8 gNeverEnteredCastle;
 s8 gCutsceneIndex;
 s8 gCutsceneID;
 s8 gDialogIndex;
+s8 gDialogSpeaker;
 s8 gSkipIntro;
+s8 gAButtonPrompt;
+s8 gBattleDialogIndex;
+s8 gBattleTips[20];
+s8 gBattleTipIndex;
+void (*gSkyboxDest)(s16 *);
 
 struct MarioState *gMarioState = &gMarioStates[0];
 s8 sWarpCheckpointActive = FALSE;
@@ -1317,6 +1323,11 @@ s32 lvl_set_current_level(UNUSED s16 arg0, s32 levelNum) {
     sWarpCheckpointActive = FALSE;
     gCurrLevelNum = levelNum;
     gCurrCourseNum = gLevelToCourseNumTable[levelNum - 1];
+	if (gCurrLevelNum == LEVEL_TTC) return 0;
+	if (gCurrLevelNum == LEVEL_LLL) return 0;
+	if (gCurrLevelNum == LEVEL_JRB) return 0;
+	if (gCurrLevelNum == LEVEL_CCM) return 0;
+	if (gCurrLevelNum == LEVEL_WF) return 0;
 	if (gCurrLevelNum == LEVEL_BOB) return 0;
 	if (gCurrLevelNum == LEVEL_SA) return 0;
 

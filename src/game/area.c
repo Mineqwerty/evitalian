@@ -375,7 +375,7 @@ void render_game(void) {
 
         gDPSetScissor(gDisplayListHead++, G_SC_NON_INTERLACE, 0, gBorderHeight, SCREEN_WIDTH,
                       SCREEN_HEIGHT - gBorderHeight);
-        render_hud();
+        
 
         gDPSetScissor(gDisplayListHead++, G_SC_NON_INTERLACE, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
         render_text_labels();
@@ -419,7 +419,7 @@ void render_game(void) {
         }
     }
 
-
+    render_hud();
     #if PUPPYPRINT_DEBUG
     puppyprint_render_profiler();
     #endif

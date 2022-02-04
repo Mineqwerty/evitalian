@@ -9,6 +9,7 @@
 #include "config.h"
 
 extern u8 gDecompressionHeap[];
+extern u8 gSkyboxBuffer[];
 
 extern u8 gAudioHeap[];
 

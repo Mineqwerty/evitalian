@@ -42,3 +42,12 @@
 #include "levels/lll/areas/1/geo.inc.c"
 #include "levels/lll/volcano_falling_trap/geo.inc.c"
 #include "levels/lll/areas/2/geo.inc.c"
+
+#include "levels/lll/geo.inc.c"
+
+#include "levels/lll/ramiel/geo.inc.c"
+#include "levels/lll/ramiel_drill/geo.inc.c"
+#include "levels/lll/ramiel_hurt/geo.inc.c"
+#include "levels/lll/ramiel_charge/geo.inc.c"
+#include "levels/lll/ramiel_beam/geo.inc.c"
+#include "levels/lll/ramiel_shard/geo.inc.c"

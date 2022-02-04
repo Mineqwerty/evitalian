@@ -1,0 +1,10 @@
+extern const GeoLayout at_field_geo[];
+extern Lights1 at_field_f3d_material_001_lights;
+extern u8 at_field_atfield_ci4[];
+extern u8 at_field_atfield_ci4_pal_rgba16[];
+extern Vtx at_field_Plane_001_mesh_layer_4_vtx_0[25];
+extern Gfx at_field_Plane_001_mesh_layer_4_tri_0[];
+extern Gfx mat_at_field_f3d_material_001[];
+extern Gfx mat_revert_at_field_f3d_material_001[];
+extern Gfx at_field_Plane_001_mesh_layer_4[];
+extern Gfx at_field_material_revert_render_settings[];

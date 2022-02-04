@@ -1,0 +1,3 @@
+extern void scroll_ramiel_charge_Circle_002_mesh_layer_4_vtx_0();
+extern void scroll_ramiel_charge_Circle_002_mesh_layer_4_vtx_1();
+extern void scroll_lll_level_geo_ramiel_charge();

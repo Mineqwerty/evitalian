@@ -225,6 +225,20 @@ void print_ram_bar(void) {
     finish_blank_box();
 }
 
+void print_evi_health(void) {
+    prepare_blank_box();
+    render_blank_box(2, 16, 60, 28, 46, 46, 46, 255);
+    render_blank_box(2, 16, 60*gMarioState->eviHealth/50, 28, 199, 37, 8, 255);
+    finish_blank_box();
+}
+
+void print_angel_health(void) {
+    prepare_blank_box();
+    render_blank_box(258, 16, 318, 28, 46, 46, 46, 255);
+    render_blank_box(318 - 60*gMarioState->enemyHealth/50, 16, 318, 28, 110, 48, 161, 255);
+    finish_blank_box();
+}
+
 // Another epic lookup table, for text this time.
 const char ramNames[9][32] = {
     "Buffers",

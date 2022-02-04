@@ -28,10 +28,34 @@
             "release_rate": 10,
             "envelope": "envelope",
             "sound": "24_custom_fly_me_to_the_moon"
+        },
+        "inst2": {
+            "release_rate": 10,
+            "envelope": "envelope",
+            "sound": "25_custom_triumphant"
+        },
+        "inst3": {
+            "release_rate": 10,
+            "envelope": "envelope",
+            "sound": "26_custom_decisive"
+        },
+        "inst4": {
+            "release_rate": 10,
+            "envelope": "envelope",
+            "sound": "27_custom_ode"
+        },
+        "inst5": {
+            "release_rate": 10,
+            "envelope": "envelope",
+            "sound": "28_custom_air"
         }
     },
     "instrument_list": [
         "inst0",
-        "inst1"
+        "inst1",
+        "inst2",
+        "inst3",
+        "inst4",
+        "inst5"
     ]
 }

@@ -1704,10 +1704,11 @@ void queue_rumble_particles(void) {
 /**
  * Main function for executing Mario's behavior. Returns particleFlags.
  */
+
+#include "include/segment_symbols.h"
 s32 execute_mario_action(UNUSED struct Object *obj) {
     s32 inLoop = TRUE;
 
-    
 
 
     // Updates once per frame:
