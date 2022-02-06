@@ -109,6 +109,7 @@ extern s8 gBattleDialogIndex;
 extern s8 gBattleTips[];
 extern s8 gBattleTipIndex;
 extern void (*gSkyboxDest)(s16 *);
+extern s8 gChokeMario;
 
 struct HudDisplay {
     /*0x00*/ s16 lives;

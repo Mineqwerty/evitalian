@@ -565,5 +565,9 @@ extern const BehaviorScript bhvBoworu[];
 extern const BehaviorScript bhvBoworuDeathCutscene[];
 extern const BehaviorScript bhvStaticModel[];
 extern const BehaviorScript bhvHospitalCutscene[];
+extern const BehaviorScript bhvTerminalDogmaCutscene[];
+extern const BehaviorScript bhvThirdImpactCutscene[];
+extern const BehaviorScript bhvBupith[];
+extern const BehaviorScript bhvEviGenddo[];
 
 #endif // BEHAVIOR_DATA_H

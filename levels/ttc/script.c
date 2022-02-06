@@ -54,18 +54,18 @@ const LevelScript level_ttc_entry[] = {
 		OBJECT(MODEL_LUIJI_FIXED, 199, 100, -217, 0, 90, 0, (1 << 16), bhvGenericNPC),
 		OBJECT(MODEL_RAMIEL_SHARD, 399, 162, -291, 0, 0, 0, (2 << 16), bhvGenericNPC),
 		OBJECT(MODEL_RAMIEL_SHARD, 399, 162, 851, 0, 0, 0, (2 << 16), bhvGenericNPC),
-		OBJECT(MODEL_NONE, 0, 200, 0, 0, 0, 0, 0x000A0000, bhvSpinAirborneWarp),
-		MARIO_POS(0x01, 0, 0, 200, 0),
+		OBJECT(MODEL_NONE, 671, 100, -247, 0, 0, 0, 0x000A0000, bhvSpinAirborneWarp),
+		MARIO_POS(0x01, 0, 671, 100, -247),
 		TERRAIN(ttc_area_1_collision),
 		MACRO_OBJECTS(ttc_area_1_macro_objs),
-		SET_BACKGROUND_MUSIC(0x00, SEQ_LEVEL_GRASS),
+		SET_BACKGROUND_MUSIC(0x00, SEQ_STREAMED_THANATOS),
 		TERRAIN_TYPE(TERRAIN_GRASS),
 		/* Fast64 begin persistent block [area commands] */
 		/* Fast64 end persistent block [area commands] */
 	END_AREA(),
 
 	FREE_LEVEL_POOL(),
-	MARIO_POS(0x01, 0, 0, 200, 0),
+	MARIO_POS(0x01, 0, 671, 100, -247),
 	CALL(0, lvl_init_or_update),
 	CALL_LOOP(1, lvl_init_or_update),
 	CLEAR_LEVEL(),

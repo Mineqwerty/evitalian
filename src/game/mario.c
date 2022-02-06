@@ -1448,7 +1448,7 @@ void update_mario_health(struct MarioState *m) {
                     if ((m->pos[1] >= (m->waterLevel - 140)) && !terrainIsSnow) {
                         m->health += 0x1A;
                     } else if (!gDebugLevelSelect) {
-                        m->health -= (terrainIsSnow ? 3 : 1);
+                        //m->health -= (terrainIsSnow ? 3 : 1);
                     }
 #endif
                 }
@@ -1709,6 +1709,9 @@ void queue_rumble_particles(void) {
 s32 execute_mario_action(UNUSED struct Object *obj) {
     s32 inLoop = TRUE;
 
+    if (gChokeMario == 1) {
+        gMarioState->marioBodyState->eyeState = MARIO_EYES_DEAD;
+    }
 
 
     // Updates once per frame:

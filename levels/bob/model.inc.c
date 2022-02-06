@@ -19,8 +19,8 @@ Lights1 bob_dl_f3d_material_018_lights = gdSPDefLights1(
 	0xFE, 0xFE, 0xFE, 0x28, 0x28, 0x28);
 
 Lights1 bob_dl_f3d_material_019_lights = gdSPDefLights1(
-	0x22, 0x0, 0x2,
-	0x44, 0x0, 0x5, 0x28, 0x28, 0x28);
+	0x3E, 0x3, 0x9,
+	0x7C, 0x7, 0x12, 0x28, 0x28, 0x28);
 
 Gfx bob_dl_RMGP01_9176ad0a_14_ci8_aligner[] = {gsSPEndDisplayList()};
 u8 bob_dl_RMGP01_9176ad0a_14_ci8[] = {
@@ -1717,7 +1717,6 @@ Gfx mat_revert_bob_dl_f3d_material_022[] = {
 Gfx mat_bob_dl_f3d_material_018[] = {
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT, TEXEL0, 0, SHADE, 0, 0, 0, 0, ENVIRONMENT),
-	gsSPClearGeometryMode(G_CULL_BACK),
 	gsSPTexture(65535, 65535, 0, 0, 1),
 	gsDPSetTextureLUT(G_TT_RGBA16),
 	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b, 1, bob_dl_RMGP01_b03ac7f9_14_ci4_pal_rgba16),
@@ -1740,7 +1739,6 @@ Gfx mat_bob_dl_f3d_material_018[] = {
 
 Gfx mat_revert_bob_dl_f3d_material_018[] = {
 	gsDPPipeSync(),
-	gsSPSetGeometryMode(G_CULL_BACK),
 	gsDPSetTextureLUT(G_TT_NONE),
 	gsSPEndDisplayList(),
 };
@@ -1748,15 +1746,8 @@ Gfx mat_revert_bob_dl_f3d_material_018[] = {
 Gfx mat_bob_dl_f3d_material_019[] = {
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT, 0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT),
-	gsSPClearGeometryMode(G_CULL_BACK),
 	gsSPTexture(65535, 65535, 0, 0, 1),
 	gsSPSetLights1(bob_dl_f3d_material_019_lights),
-	gsSPEndDisplayList(),
-};
-
-Gfx mat_revert_bob_dl_f3d_material_019[] = {
-	gsDPPipeSync(),
-	gsSPSetGeometryMode(G_CULL_BACK),
 	gsSPEndDisplayList(),
 };
 
@@ -1788,7 +1779,6 @@ Gfx bob_dl_Plane_mesh_layer_1[] = {
 	gsSPDisplayList(mat_revert_bob_dl_f3d_material_018),
 	gsSPDisplayList(mat_bob_dl_f3d_material_019),
 	gsSPDisplayList(bob_dl_Plane_mesh_layer_1_tri_1),
-	gsSPDisplayList(mat_revert_bob_dl_f3d_material_019),
 	gsSPEndDisplayList(),
 };
 

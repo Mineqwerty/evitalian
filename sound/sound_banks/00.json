@@ -75,6 +75,16 @@
             "release_rate": 70,
             "envelope": "envelope0",
             "sound": "0B_ramiel_idle"
+        },
+        "inst12": {
+            "release_rate": 70,
+            "envelope": "envelope0",
+            "sound": "0C_bite"
+        },
+        "inst13": {
+            "release_rate": 70,
+            "envelope": "envelope0",
+            "sound": "0D_screaming"
         }
     },
     "instrument_list": [
@@ -89,6 +99,8 @@
         "inst8",
         "inst9",
         "inst10",
-        "inst11"
+        "inst11",
+        "inst12",
+        "inst13"
     ]
 }

@@ -587,6 +587,9 @@
 #define MODEL_RAMIEL_SHARD       0x115
 #define MODEL_BOWORU       0x116
 #define MODEL_EVI_BOWORU       0x117
+#define MODEL_DED_MARIO                0x118
+#define MODEL_BUPITH               0x119
+#define MODEL_BOWORU_GHOST       0x11A
 
 #define MODEL_FMTTM        0x120
 #define MODEL_GEOFRONT_ELEVATOR 0x121

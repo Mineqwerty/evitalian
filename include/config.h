@@ -206,7 +206,7 @@
 // If you want the game to boot normally, just comment out the define again.
 
 //this NEEDS to be LEVEL_SA in the final release
-#define TEST_LEVEL LEVEL_TTC
+#define TEST_LEVEL LEVEL_SA
 
 // Enable debug level select
 //#define DEBUG_LEVEL_SELECT

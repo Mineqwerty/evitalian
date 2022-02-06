@@ -2089,6 +2089,15 @@ void obj_explode_and_spawn_coins(f32 mistSize, s32 coinType) {
     }
 }
 
+void target_obj_explode_and_spawn_coins(f32 mistSize, s32 coinType, struct Object *targetObject) {
+    if (targetObject) {
+    spawn_mist_particles_variable(0, 0, mistSize);
+    spawn_triangle_break_particles(30, MODEL_DIRT_ANIMATION, 3.0f, 4);
+    obj_mark_for_deletion(targetObject);
+    //obj_spawn_loot_yellow_coins(targetObject, 2, 20.0f);
+    }
+}
+
 void obj_set_collision_data(struct Object *obj, const void *segAddr) {
     obj->collisionData = segmented_to_virtual(segAddr);
 }

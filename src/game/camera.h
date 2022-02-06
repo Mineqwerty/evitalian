@@ -289,6 +289,7 @@
 #define CAM_EVENT_START_END_WAVING    12
 #define CAM_EVENT_START_CREDITS       13
 
+extern u32 gPrevLevel;
 /**
  * A copy of player information that is relevant to the camera.
  */

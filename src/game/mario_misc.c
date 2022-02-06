@@ -381,6 +381,10 @@ Gfx *geo_switch_mario_eyes(s32 callContext, struct GraphNode *node, UNUSED Mat4 
         } else {
             switchCase->selectedCase = bodyState->eyeState - 1;
         }
+
+        if (gChokeMario == 1) {
+        gMarioState->marioBodyState->eyeState = MARIO_EYES_DEAD;
+        }
     }
     return NULL;
 }

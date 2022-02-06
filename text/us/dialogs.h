@@ -273,23 +273,20 @@ be the one to pilot.\n\
 I'll help Peasato give\n\
 you tips instead..."))
 
-DEFINE_DIALOG(DIALOG_025, 1, 4, 95, 200, _("\
-It takes the power of\n\
-3 Stars to open this\n\
-door. You need [%] more\n\
-Stars."))
+DEFINE_DIALOG(DIALOG_025, 1, 3, 95, 200, _("\
+Well... what are\n\
+you waiting for?\n\
+Go on ahead..."))
 
-DEFINE_DIALOG(DIALOG_026, 1, 4, 95, 200, _("\
-It takes the power of\n\
-8 Stars to open this\n\
-door. You need [%] more\n\
-Stars."))
+DEFINE_DIALOG(DIALOG_026, 1, 5, 95, 200, _("\
+Hurry!\n\
+I didn't want to say\n\
+it in front of him, but\n\
+your brother will only\n\
+slow you down."))
 
 DEFINE_DIALOG(DIALOG_027, 1, 4, 95, 200, _("\
-It takes the power of\n\
-30 Stars to open this\n\
-door. You need [%] more\n\
-Stars."))
+..."))
 
 DEFINE_DIALOG(DIALOG_028, 1, 4, 95, 200, _("\
 It takes the power of\n\

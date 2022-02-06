@@ -134,6 +134,7 @@ void bhv_custom_cam_volume_loop(void) {
                     gMarioState->faceAngle[1] = -0x4000;
 
                     if (o->oVolumeTimer < 60) {
+                         seq_player_lower_volume(SEQ_PLAYER_LEVEL, 1, 1);
                          cur_obj_play_sound_1(SOUND_ENV_ELEVATOR1);
                          gMarioState->action = ACT_WAITING_FOR_DIALOG;
                     }
@@ -155,6 +156,7 @@ void bhv_custom_cam_volume_loop(void) {
                          }
                          if (o->oVolumeTimer == 97) {
                              play_sound(SOUND_LUIGI_HURT, gGlobalSoundSource);
+                             seq_player_unlower_volume(SEQ_PLAYER_LEVEL, 1);
                          }
                     }
 
@@ -166,6 +168,12 @@ void bhv_custom_cam_volume_loop(void) {
                     if (o->oVolumeTimer == 91) {
                          gMarioState->action = ACT_HARD_BACKWARD_AIR_KB;
                     }
+               }
+
+               if (gCurrLevelNum == LEVEL_WMOTR && o->oBehParams2ndByte == 15) {
+                    
+                    spawn_object_relative(0, 0, 0, 0, o, MODEL_NONE, bhvTerminalDogmaCutscene);
+                    obj_mark_for_deletion(o);
                }
 
 

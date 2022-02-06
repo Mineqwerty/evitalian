@@ -5,6 +5,7 @@
 #include "actors/reisalina/anim_header.h"
 
 #include "levels/wf/boworu/anim_header.h"
+#include "levels/wdw/ti_mario/anim_header.h"
 void bhv_generic_npc_init(void) {
     o->oGravity  = 5.5f;
     o->oFriction = 0.8f;
@@ -38,6 +39,16 @@ void bhv_generic_npc_init(void) {
 
     if (cur_obj_has_model(MODEL_BOWORU)) {
         o->oAnimations = boworu_anims;
+        cur_obj_init_animation(0);
+    }
+
+    if (cur_obj_has_model(MODEL_BOWORU_GHOST)) {
+        //o->oAnimations = boworu_ghost_anims;
+        //cur_obj_init_animation(0);
+    }
+
+    if (cur_obj_has_model(MODEL_INTRO_MARIO)) {
+        o->oAnimations = ti_mario_anims;
         cur_obj_init_animation(0);
     }
 }

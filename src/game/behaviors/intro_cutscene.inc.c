@@ -18,7 +18,7 @@ void bhv_intro_cutscene_loop(void) {
         gSkipIntro = 0;
         gDialogIndex = 0;
         gCutsceneIndex = 0;
-        //gCutsceneID = 0;
+        gCutsceneID = 0;
         initiate_warp(1, 1, 10, 0);
         }
     }
@@ -293,7 +293,7 @@ void bhv_intro_cutscene_loop(void) {
         case 2680: //play_transition(WARP_TRANSITION_FADE_FROM_COLOR, 10, 0, 0, 0);
         gDialogIndex = 0;
         gCutsceneIndex = 0;
-        //gCutsceneID = 0;
+        gCutsceneID = 0;
         initiate_warp(1, 1, 10, 0);
         break;
 

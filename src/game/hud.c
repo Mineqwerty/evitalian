@@ -437,6 +437,10 @@ void render_cutscene_text(void) {
 }
 
 void render_a_button_prompt(void) {
+
+    if (gAButtonPrompt == 0) {
+        print_set_envcolour(250,250,250,255);
+    }
     
     if (gAButtonPrompt == 1) {
         static int isDisplaying;
@@ -539,6 +543,7 @@ void render_evi_hud(void) {
     extern const Texture evi_textbox[];
     extern const Texture peasato_portrait[];
     extern const Texture daisuka_portrait[];
+    extern const Texture luiji_portrait[];
 
     print_evi_health();
     print_angel_health();
@@ -553,6 +558,9 @@ void render_evi_hud(void) {
         case 7:
         case 9:
             render_multi_image(&daisuka_portrait, 12, 173, 64, 64, 1, 1, G_CYC_COPY);
+        break;
+        case 8:
+        render_multi_image(&luiji_portrait, 12, 173, 64, 64, 1, 1, G_CYC_COPY);
         break;
 
     default:
@@ -818,9 +826,9 @@ void render_hud(void) {
         }
     #endif
     if (gCutsceneID == 0 && gCurrLevelNum != LEVEL_CCM && gCurrLevelNum != LEVEL_LLL && gCurrAreaIndex != 6) {
-        if (hudDisplayFlags & HUD_DISPLAY_FLAG_COIN_COUNT  ) render_hud_coins();
-        if (hudDisplayFlags & HUD_DISPLAY_FLAG_STAR_COUNT  ) render_hud_stars();
-        if (hudDisplayFlags & HUD_DISPLAY_FLAG_KEYS        ) render_hud_keys();
+        if (hudDisplayFlags & HUD_DISPLAY_FLAG_COIN_COUNT  ) //render_hud_coins();
+        if (hudDisplayFlags & HUD_DISPLAY_FLAG_STAR_COUNT  ) //render_hud_stars();
+        if (hudDisplayFlags & HUD_DISPLAY_FLAG_KEYS        ) //render_hud_keys();
 #ifdef BREATH_METER
         if (hudDisplayFlags & HUD_DISPLAY_FLAG_BREATH_METER) render_hud_breath_meter();
 #endif

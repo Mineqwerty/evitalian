@@ -8,7 +8,7 @@
 
 
 void bhv_ramiel_init(void) {
-    o->oRamielHealth = 50;
+    o->oRamielHealth = 10;
     //obj_set_hitbox(o, &sSachielHitbox);
 }
 
@@ -249,7 +249,7 @@ void ramiel_act_death(void) {
         int z = 200 * (3 - random_u16() % 6);
         spawn_object_relative(0, x, y, z, o, MODEL_EXPLOSION, bhvExplosion);
     }
-
+    gPrevLevel = LEVEL_LLL;
     if (o->oTimer >= 90) {
         level_trigger_warp(gMarioState, WARP_OP_STAR_EXIT);
     }
@@ -409,8 +409,9 @@ void bhv_ramiel_shard_loop(void) {
                     evi->oForwardVel = -150.0f;
                     evi->oAction = 6;
                     play_sound(SOUND_GENERAL_POUND_WOOD_POST, gGlobalSoundSource);
-                    o->oSubAction++;
+                    
                 }
+                o->oSubAction++;
             }
             if (o->oTimer >= 90) {
                 o->oSubAction++;

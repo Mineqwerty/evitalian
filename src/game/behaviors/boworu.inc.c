@@ -17,7 +17,7 @@ void bhv_boworu_loop(void) {
     bullet = cur_obj_find_nearest_object_with_behavior(bhvBulletBill, &dist);
     if (bullet != NULL && dist < 400.0f) {  
         bullet->oInteractStatus |= INT_STATUS_INTERACTED;
-        o->oBoworuHealth -= 4;
+        o->oBoworuHealth -= 8;
         play_sound(SOUND_GENERAL_GRINDEL_ROLL, gGlobalSoundSource);
     }
 
@@ -26,7 +26,7 @@ void bhv_boworu_loop(void) {
 
     knife = cur_obj_find_nearest_object_with_behavior(bhvEviKnifeHitbox, &dist2);
     if (knife != NULL && dist2 < 600.0f) {
-        o->oBoworuHealth -= 8;
+        o->oBoworuHealth -= 15;
         obj_mark_for_deletion(knife);
         play_sound(SOUND_GENERAL_GRINDEL_ROLL, gGlobalSoundSource);
         
@@ -65,6 +65,7 @@ void bhv_boworu_loop(void) {
         gMarioState->enemyHealth = 0;
         gMarioState->deathTimer = -1;
         o->oTimer = 0;
+        initiate_warp(LEVEL_WMOTR, 1, 10, 0);
     }
 }
 

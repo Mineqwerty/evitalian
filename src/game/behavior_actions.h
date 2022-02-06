@@ -590,6 +590,10 @@ void bhv_boworu_init(void);
 void bhv_boworu_loop(void);
 void bhv_boworu_death(void);
 void bhv_hospital_cutscene(void);
+void bhv_terminal_dogma_cutscene(void);
+void bhv_third_impact_cutscene(void);
+void bhv_evi_genddo_loop(void);
+void bhv_bupith_loop(void);
 
 Gfx *geo_move_mario_part_from_parent(s32 callContext, UNUSED struct GraphNode *node, Mat4 mtx);
 

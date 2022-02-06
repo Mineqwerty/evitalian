@@ -1647,22 +1647,22 @@ void render_pause_course_options(s16 x, s16 y, s8 *index, s16 yIndex) {
     u8 textExitCourse[] = { TEXT_EXIT_COURSE };
     u8 textCameraAngleR[] = { TEXT_CAMERA_ANGLE_R };
 
-    handle_menu_scrolling(MENU_SCROLL_VERTICAL, index, 1, 3);
+    //handle_menu_scrolling(MENU_SCROLL_VERTICAL, index, 1, 3);
 
     gSPDisplayList(gDisplayListHead++, dl_ia_text_begin);
     gDPSetEnvColor(gDisplayListHead++, 255, 255, 255, gDialogTextAlpha);
 
-    print_generic_string(x + 10, y - 2, textContinue);
-    print_generic_string(x + 10, y - 17, textExitCourse);
+    //print_generic_string(x + 10, y - 2, textContinue);
+    //print_generic_string(x + 10, y - 17, textExitCourse);
 
     if (*index != MENU_OPT_CAMERA_ANGLE_R) {
-        print_generic_string(x + 10, y - 33, textCameraAngleR);
+        //print_generic_string(x + 10, y - 33, textCameraAngleR);
         gSPDisplayList(gDisplayListHead++, dl_ia_text_end);
 
         create_dl_translation_matrix(MENU_MTX_PUSH, x - X_VAL8, (y - ((*index - 1) * yIndex)) - Y_VAL8, 0);
 
         gDPSetEnvColor(gDisplayListHead++, 255, 255, 255, gDialogTextAlpha);
-        gSPDisplayList(gDisplayListHead++, dl_draw_triangle);
+        //gSPDisplayList(gDisplayListHead++, dl_draw_triangle);
         gSPPopMatrix(gDisplayListHead++, G_MTX_MODELVIEW);
     }
 
@@ -1844,8 +1844,8 @@ s16 render_pause_courses_and_castle(void) {
             break;
         case DIALOG_STATE_VERTICAL:
             shade_screen();
-            render_pause_my_score_coins();
-            render_pause_red_coins();
+            //render_pause_my_score_coins();
+            //render_pause_red_coins();
         #ifndef EXIT_COURSE_WHILE_MOVING
             s32 exitCheck = gMarioStates[0].action & ACT_FLAG_PAUSE_EXIT;
         #else
@@ -1853,7 +1853,7 @@ s16 render_pause_courses_and_castle(void) {
         #endif
             #ifndef DISABLE_EXIT_COURSE
             if (exitCheck)
-                render_pause_course_options(99, 93, &gDialogLineNum, 15);
+                //render_pause_course_options(99, 93, &gDialogLineNum, 15);
             #endif
 
             if (gPlayer3Controller->buttonPressed & A_BUTTON

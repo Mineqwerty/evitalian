@@ -22,3 +22,14 @@
 #include "levels/wdw/rotating_platform/geo.inc.c"
 #include "levels/wdw/areas/1/geo.inc.c"
 #include "levels/wdw/areas/2/geo.inc.c"
+
+#include "levels/wdw/ti_mario/geo.inc.c"
+#include "levels/wdw/geo.inc.c"
+
+#include "levels/wdw/ded_mario/geo.inc.c"
+#include "levels/wdw/bupith/geo.inc.c"
+#include "levels/wdw/blackmoon/geo.inc.c"
+#include "levels/wdw/daisuka_again/geo.inc.c"
+#include "levels/wdw/evi_genddo/geo.inc.c"
+#include "levels/wdw/boworu_ghost/geo.inc.c"
+#include "levels/wdw/bupwings/geo.inc.c"

@@ -4,3 +4,5 @@
 #include "anim_luiji_sad.inc.c"
 #include "anim_walk.inc.c"
 #include "anim_sneeze.inc.c"
+#include "anim_bendover.inc.c"
+#include "anim_choke.inc.c"

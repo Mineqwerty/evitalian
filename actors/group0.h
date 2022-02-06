@@ -378,4 +378,6 @@ extern const Gfx white_particle_small_unused_dl[];
 #include "daisuka/anim_header.h"
 
 #include "reisalina/anim_header.h"
+#include "mario/collision_header.h"
+
 #endif

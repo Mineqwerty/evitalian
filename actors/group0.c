@@ -57,3 +57,4 @@
 #include "daisuka/anims/table.inc.c"
 #include "reisalina/anims/data.inc.c"
 #include "reisalina/anims/table.inc.c"
+#include "mario/collision.inc.c"

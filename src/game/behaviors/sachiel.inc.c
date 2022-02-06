@@ -57,6 +57,10 @@ void bhv_sachiel_loop(void) {
         }
     }
 
+    if (o->oSachielInvFrames > 0) {
+        o->oSachielInvFrames -= 1;
+    }
+
     struct Object *knife;
     f32 dist2;
 
@@ -75,9 +79,10 @@ void bhv_sachiel_loop(void) {
             o->oAction = SACHIEL_ACT_FLY;
             o->oVelY = 50.0f;
         }
-        else {
+        else if (o->oSachielInvFrames == 0) {
             o->oAction = SACHIEL_ACT_FLY;
             o->oVelY = 20.0f;
+            o->oSachielInvFrames = 150;
         }
         
     }

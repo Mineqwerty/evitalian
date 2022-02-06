@@ -1,0 +1,13 @@
+extern const GeoLayout bupwings_geo[];
+extern Lights1 bupwings_f3d_material_006_lights;
+extern Lights1 bupwings_f3d_material_005_lights;
+extern Vtx bupwings_Plane_mesh_layer_1_vtx_0[58];
+extern Gfx bupwings_Plane_mesh_layer_1_tri_0[];
+extern Vtx bupwings_Plane_mesh_layer_1_vtx_1[36];
+extern Gfx bupwings_Plane_mesh_layer_1_tri_1[];
+extern Gfx mat_bupwings_f3d_material_006[];
+extern Gfx mat_revert_bupwings_f3d_material_006[];
+extern Gfx mat_bupwings_f3d_material_005[];
+extern Gfx mat_revert_bupwings_f3d_material_005[];
+extern Gfx bupwings_Plane_mesh_layer_1[];
+extern Gfx bupwings_material_revert_render_settings[];

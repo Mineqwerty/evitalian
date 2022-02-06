@@ -1,3 +1,5 @@
+#include "src/game/camera.h"
+
 void bhv_general_cutscene_init(void) {
     o->oNextStep = 1;
     gCamera->cutscene = 1;
@@ -5,6 +7,16 @@ void bhv_general_cutscene_init(void) {
 
 void bhv_first_time_in_nerv_cutscene(void) {
 struct Object *luiji;
+
+if (gPrevLevel == LEVEL_CCM) {
+    gCutsceneIndex = 0;
+        gDialogIndex = 0;
+        gCutsceneID = 0;
+        gMarioState->action = ACT_IDLE;
+        gCamera->cutscene = 0;
+        obj_mark_for_deletion(o);
+    return;
+}
 
 
 if (o->oTimer >= 60 && gCutsceneID == 2) {
@@ -16,6 +28,23 @@ if (o->oTimer >= 60 && gCutsceneID == 2) {
         o->oNextStep = 1;
     }
 }
+
+if (gPlayer1Controller->buttonPressed & START_BUTTON) {
+        if (gSkipIntro == 0) {
+            gSkipIntro = 90;
+        }
+        else if (gSkipIntro <= 60) {
+        gSkipIntro = 0;
+        gCutsceneIndex = 0;
+        gDialogIndex = 0;
+        gCutsceneID = 0;
+        gMarioState->action = ACT_IDLE;
+        gCamera->cutscene = 0;
+        play_transition(WARP_TRANSITION_FADE_FROM_COLOR, 10, 0, 0, 0);
+        obj_mark_for_deletion(o);
+        return;
+        }
+    }
 
 if (o->oNextStep == 1 || o->oNonPersistentCutsceneStep == 1) {
 
@@ -179,6 +208,39 @@ if (o->oTimer >= 60 && gCutsceneID == 3) {
     }
 }
 
+if (gPlayer1Controller->buttonPressed & START_BUTTON) {
+        if (gSkipIntro == 0) {
+            gSkipIntro = 90;
+        }
+        else if (gSkipIntro <= 60) {
+        gSkipIntro = 0;
+        gCutsceneIndex = 0;
+        gDialogIndex = 0;
+        gCutsceneID = 0;
+        gMarioState->action = ACT_IDLE;
+        gCamera->cutscene = 0;
+        play_transition(WARP_TRANSITION_FADE_FROM_COLOR, 10, 0, 0, 0);
+
+        genddo = cur_obj_find_object_with_bparam_2nd_byte(bhvGenericNPC, 01);
+        daisuka = cur_obj_find_object_with_bparam_2nd_byte(bhvGenericNPC, 02);
+            reisalina = cur_obj_find_object_with_bparam_2nd_byte(bhvGenericNPC, 03);
+            if (genddo) {
+                obj_mark_for_deletion(genddo);
+            }
+            if (reisalina) {
+                obj_mark_for_deletion(reisalina);
+            }
+            
+            if (daisuka) {
+                obj_mark_for_deletion(daisuka);
+            }
+
+
+        obj_mark_for_deletion(o);
+        return;
+        }
+    }
+
 if (o->oNextStep == 1 || o->oNonPersistentCutsceneStep == 1) {
 
     o->oNextStep = 0;
@@ -198,8 +260,10 @@ if (o->oNonPersistentCutsceneStep == 0) {
             o->oCutsceneStep = 1;
         break;
         case 1: 
+        play_secondary_music(SEQ_STREAMED_TRIUMPHANT, 0, 165, 1);
         o->oNonPersistentCutsceneStep = 0;
             gCamera->cutscene = 1;
+            o->oNextStep = 1;
             if (o->oTimer >= 30) {
                 o->oCutsceneStep = 2;
                 o->oNextStep = 1;
@@ -222,6 +286,7 @@ if (o->oNonPersistentCutsceneStep == 0) {
                 luiji->oMoveAngleYaw = gMarioState->faceAngle[1];
                 luiji->oFaceAngleYaw = gMarioState->faceAngle[1];
             }
+            o->oNextStep = 1;
         break;
         case 3:
             gCutsceneIndex = 1;
@@ -236,6 +301,7 @@ if (o->oNonPersistentCutsceneStep == 0) {
                 luiji->oMoveAngleYaw = gMarioState->faceAngle[1];
                 luiji->oFaceAngleYaw = gMarioState->faceAngle[1];
             }
+            o->oNextStep = 1;
         break;
         case 4:
             gDialogIndex = 23;
@@ -286,6 +352,7 @@ if (o->oNonPersistentCutsceneStep == 0) {
 
             gCutsceneIndex = 5;
             gDialogIndex = 32;
+            o->oNextStep = 1;
         break;
         case 14:
             genddo = cur_obj_find_object_with_bparam_2nd_byte(bhvGenericNPC, 01);
@@ -304,6 +371,7 @@ if (o->oNonPersistentCutsceneStep == 0) {
                 obj_mark_for_deletion(daisuka);
             }
             gDialogIndex = 33;
+            o->oNextStep = 1;
         break;
         case 15:
             genddo = cur_obj_find_object_with_bparam_2nd_byte(bhvGenericNPC, 01);
@@ -317,6 +385,7 @@ if (o->oNonPersistentCutsceneStep == 0) {
                 geo_obj_init_animation(&genddo->header.gfx, &g3anims[0]);
             gDialogIndex = 34;
             gCutsceneIndex = 6;
+            o->oNextStep = 1;
         break;
         case 16:
         genddo = cur_obj_find_object_with_bparam_2nd_byte(bhvGenericNPC, 01);
@@ -328,6 +397,7 @@ if (o->oNonPersistentCutsceneStep == 0) {
             reisalina->oFaceAngleYaw -= 0x200;
             gDialogIndex = 35;
             gCutsceneIndex = 7;
+            o->oNextStep = 1;
         break;
         case 17:
         genddo = cur_obj_find_object_with_bparam_2nd_byte(bhvGenericNPC, 01);
@@ -358,6 +428,16 @@ if (o->oNonPersistentCutsceneStep == 0) {
 
 void bhv_pre_ramiel(void) {
 
+
+if (gPrevLevel == LEVEL_LLL) {
+    gCutsceneIndex = 0;
+        gDialogIndex = 0;
+        gCutsceneID = 0;
+        gMarioState->action = ACT_IDLE;
+        gCamera->cutscene = 0;
+        obj_mark_for_deletion(o);
+    return;
+}
 
 if (o->oTimer >= 60 && gCutsceneID == 3) {
     gAButtonPrompt = 1;
@@ -413,6 +493,36 @@ struct Object *luiji;
 struct Object *peasato;
 struct Object *boworu;
 
+if (gPrevLevel == LEVEL_WF) {
+    gCutsceneIndex = 0;
+        gDialogIndex = 0;
+        gCutsceneID = 0;
+        gMarioState->action = ACT_IDLE;
+        gCamera->cutscene = 0;
+        boworu = cur_obj_find_object_with_bparam_2nd_byte(bhvGenericNPC, 03);
+        obj_mark_for_deletion(boworu);
+        obj_mark_for_deletion(o);
+    return;
+}
+
+if (gPlayer1Controller->buttonPressed & START_BUTTON) {
+        if (gSkipIntro == 0) {
+            gSkipIntro = 90;
+        }
+        else if (gSkipIntro <= 60) {
+        gSkipIntro = 0;
+        gCutsceneIndex = 0;
+        gDialogIndex = 0;
+        gCutsceneID = 0;
+        gMarioState->action = ACT_IDLE;
+        gCamera->cutscene = 0;
+        play_transition(WARP_TRANSITION_FADE_FROM_COLOR, 10, 0, 0, 0);
+        boworu = cur_obj_find_object_with_bparam_2nd_byte(bhvGenericNPC, 03);
+        obj_mark_for_deletion(boworu);
+        obj_mark_for_deletion(o);
+        return;
+        }
+    }
 
 if (o->oTimer >= 60 && gCutsceneID == 3) {
     gAButtonPrompt = 1;
@@ -660,6 +770,7 @@ void bhv_boworu_death(void) {
             if (o->oTimer >= 150) {
                 o->oSubAction++;
             o->oTimer = 0;
+            initiate_warp(LEVEL_TTC, 1, 10, 0);
             }
         break;
     }
@@ -741,7 +852,173 @@ if (o->oNonPersistentCutsceneStep == 0) {
             gDialogIndex = 0;
                 play_transition(WARP_TRANSITION_FADE_INTO_COLOR, 60, 0, 0, 0);
             break;
+            case 10:
+            gCutsceneIndex = 0;
+                 gAButtonPrompt = 0;
+        gDialogIndex = 0;
+        gCutsceneID = 0;
+        gCamera->cutscene = 0;
+            initiate_warp(LEVEL_WMOTR, 2, 10, 0);
+            break;
     }
 }
 
+}
+
+void bhv_terminal_dogma_cutscene(void) {
+
+    struct Object *luiji;
+    struct Object *reisalina;
+    struct Object *genddo;
+            
+    if (o->oTimer >= 60 && gCutsceneID == 3) {
+    gAButtonPrompt = 1;
+    if (gPlayer1Controller->buttonPressed & A_BUTTON) {
+        o->oTimer = 0;
+        o->oCutsceneStep += 1;
+        gAButtonPrompt = 0;
+        o->oNextStep = 1;
+    }
+}
+
+if (o->oNextStep == 1 || o->oNonPersistentCutsceneStep == 1) {
+
+    o->oNextStep = 0;
+
+if (o->oNonPersistentCutsceneStep == 0) {
+    play_sound(SOUND_MENU_MESSAGE_APPEAR, gGlobalSoundSource);
+}
+
+    switch (o->oCutsceneStep) {
+        case 0:
+        gCutsceneID = 3;
+            gCamera->cutscene = 1;
+            gMarioState->action = ACT_WAITING_FOR_DIALOG;
+            set_mario_animation(gMarioState, MARIO_ANIM_FIRST_PERSON);
+            gMarioState->pos[0] = o->oPosX;
+            gMarioState->pos[1] = o->oPosY;
+            gMarioState->pos[2] = o->oPosZ;
+            gMarioState->faceAngle[1] = 0;
+            o->oNonPersistentCutsceneStep = 1;
+            o->oCutsceneStep = 1;
+        break;
+        case 1: 
+        o->oNonPersistentCutsceneStep = 0;
+            gCamera->cutscene = 1;
+            gCutsceneIndex = 1;
+            if (o->oTimer >= 90) {
+                o->oCutsceneStep = 2;
+                o->oNextStep = 1;
+                o->oTimer = 0;
+            }
+            break;
+        case 2: 
+            gDialogIndex = 67;
+        break;
+        case 3: 
+            gDialogIndex = 68;
+        break;
+        case 4: 
+            gDialogIndex = 69;
+        break;
+        case 5: 
+            gDialogIndex = 70;
+        break;
+        case 6:
+        gCutsceneIndex = 2; 
+            gDialogIndex = 71;
+        break;
+        case 7:
+        gCutsceneIndex = 3; 
+            gDialogIndex = 72;
+        break;
+        case 8:
+        gCutsceneIndex = 4; 
+            gDialogIndex = 73;
+        break;
+        case 9: 
+            gDialogIndex = 74;
+        break;
+        case 10: 
+            gDialogIndex = 75;
+            reisalina = cur_obj_find_object_with_bparam_2nd_byte(bhvGenericNPC, 02);
+            struct Animation **animsee = reisalina->oAnimations;
+        geo_obj_init_animation(&reisalina->header.gfx, &animsee[1]);
+        break;
+        case 11: 
+            gDialogIndex = 76;
+        break;
+        case 12: 
+            gDialogIndex = 77;
+        break;
+        case 13:
+        gCutsceneIndex = 5; 
+            gDialogIndex = 78;
+        break;
+        case 14:
+        reisalina = cur_obj_find_object_with_bparam_2nd_byte(bhvGenericNPC, 02);
+            struct Animation **animse = reisalina->oAnimations;
+        geo_obj_init_animation(&reisalina->header.gfx, &animse[2]);
+        if (o->oTimer < 30) {
+            reisalina->oGravity = 0.0f;
+            reisalina->oPosY += 20.0f;
+        }
+        o->oNextStep = 1;
+        gCutsceneIndex = 6; 
+            gDialogIndex = 79;
+        break;
+        case 15:
+        reisalina = cur_obj_find_object_with_bparam_2nd_byte(bhvGenericNPC, 02);
+        if (o->oTimer < 80) {
+            struct Animation **animsa = reisalina->oAnimations;
+        geo_obj_init_animation(&reisalina->header.gfx, &animsa[2]);
+            reisalina->oMoveAngleYaw = -0x800;
+            reisalina->oFaceAngleYaw = -0x800;
+            reisalina->oPosY += 16.0f;
+            reisalina->oForwardVel = 30.0f;
+        }
+        else if (reisalina) {
+            obj_mark_for_deletion(reisalina);
+            o->oCutsceneStep += 1;
+        }
+        o->oNextStep = 1;
+        gCutsceneIndex = 7; 
+            gDialogIndex = 80;
+        break;
+        case 16:
+
+        break;
+        case 17:
+            gCutsceneIndex = 8; 
+            gDialogIndex = 81;
+        break;
+        case 18:
+            gDialogIndex = 82;
+        break;
+        case 19:
+            gCutsceneIndex = 9; 
+            gDialogIndex = 83;
+        break;
+        case 20:
+            gDialogIndex = 84;
+        break;
+        case 21:
+        gCutsceneIndex = 10; 
+            gDialogIndex = 85;
+        break;
+        case 22:
+            play_transition(WARP_TRANSITION_FADE_INTO_COLOR, 60, 255, 255, 255);
+            gDialogIndex = 0;
+            o->oNextStep = 1;
+            if (o->oTimer >= 60) {
+                 gCutsceneIndex = 0;
+                 gAButtonPrompt = 0;
+        gDialogIndex = 0;
+        gCutsceneID = 0;
+        gCamera->cutscene = 0;
+                initiate_warp(LEVEL_WDW, 1, 10, 0);
+            }
+        break;
+    }
+}
 }

@@ -6059,6 +6059,24 @@ const BehaviorScript bhvHospitalCutscene[] = {
         CALL_NATIVE(bhv_hospital_cutscene),
     END_LOOP(),
 };
+
+const BehaviorScript bhvTerminalDogmaCutscene[] = {
+    BEGIN(OBJ_LIST_DEFAULT),
+    OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE | OBJ_FLAG_COMPUTE_DIST_TO_MARIO),
+    CALL_NATIVE(bhv_general_cutscene_init),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_terminal_dogma_cutscene),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvThirdImpactCutscene[] = {
+    BEGIN(OBJ_LIST_DEFAULT),
+    OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE | OBJ_FLAG_COMPUTE_DIST_TO_MARIO),
+    CALL_NATIVE(bhv_general_cutscene_init),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_third_impact_cutscene),
+    END_LOOP(),
+};
 //END CUTSCENES
 
 const BehaviorScript bhvCustomCam[] = {
@@ -6173,12 +6191,23 @@ const BehaviorScript bhvGenericNPC[] = {
     SET_INTERACT_TYPE(INTERACT_TEXT),
     //DROP_TO_FLOOR(),
     SET_HITBOX(/*Radius*/ 100, /*Height*/ 60),
+    SET_FLOAT(oDrawingDistance, 32000),
     SET_INT(oBobombBuddyRole, 0),
     CALL_NATIVE(bhv_generic_npc_init),
     BEGIN_LOOP(),
         SET_INT(oIntangibleTimer, 0),
         CALL_NATIVE(bhv_bobomb_buddy_loop),
         CALL_NATIVE(bhv_generic_npc_loop),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvBupith[] = {
+    BEGIN(OBJ_LIST_GENACTOR),
+    OR_INT(oFlags, (OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW  | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE)),
+    LOAD_ANIMATIONS(oAnimations, bupith_anims),
+    ANIMATE(0),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_bupith_loop),
     END_LOOP(),
 };
 
@@ -6342,5 +6371,15 @@ const BehaviorScript bhvStaticModel[] = {
     OR_INT(oFlags, (OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW  | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE )),
     BEGIN_LOOP(),
 
+    END_LOOP(),
+};
+
+const BehaviorScript bhvEviGenddo[] = {
+    BEGIN(OBJ_LIST_DEFAULT),
+    OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
+    LOAD_ANIMATIONS(oAnimations, evi_genddo_anims),
+    ANIMATE(0),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_evi_genddo_loop),
     END_LOOP(),
 };

@@ -48,7 +48,6 @@ extern Gfx mat_revert_bob_dl_f3d_material_022[];
 extern Gfx mat_bob_dl_f3d_material_018[];
 extern Gfx mat_revert_bob_dl_f3d_material_018[];
 extern Gfx mat_bob_dl_f3d_material_019[];
-extern Gfx mat_revert_bob_dl_f3d_material_019[];
 extern Gfx bob_dl_Plane_002_mesh_layer_1[];
 extern Gfx bob_dl_Plane_mesh_layer_5[];
 extern Gfx bob_dl_Plane_mesh_layer_1[];

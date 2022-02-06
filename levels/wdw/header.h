@@ -46,4 +46,29 @@ extern const struct MovtexQuadCollection wdw_movtex_area2_water[];
 // script
 extern const LevelScript level_wdw_entry[];
 
+#include "levels/wdw/ti_mario/geo_header.h"
+
+#include "levels/wdw/ti_mario/anim_header.h"
+
+
+#include "levels/wdw/header.inc.h"
+
+#include "levels/wdw/ded_mario/geo_header.h"
+
+#include "levels/wdw/bupith/geo_header.h"
+
+#include "levels/wdw/bupith/anim_header.h"
+
+#include "levels/wdw/blackmoon/geo_header.h"
+
+#include "levels/wdw/daisuka_again/geo_header.h"
+
+#include "levels/wdw/evi_genddo/geo_header.h"
+
+#include "levels/wdw/evi_genddo/anim_header.h"
+
+#include "levels/wdw/boworu_ghost/geo_header.h"
+
+#include "levels/wdw/bupwings/geo_header.h"
+
 #endif

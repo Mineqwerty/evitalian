@@ -41,7 +41,7 @@
         "0D"
     ],
     "0A_level_spooky": [
-        "10",
+        "11",
         "21"
     ],
     "0B_event_piranha_plant": [
@@ -139,6 +139,12 @@
         "streamed_audio"
     ],
     "28_custom_air": [
+        "streamed_audio"
+    ],
+    "29_custom_thanatos": [
+        "streamed_audio"
+    ],
+    "2A_custom_komm_susser_tod": [
         "streamed_audio"
     ]
 }

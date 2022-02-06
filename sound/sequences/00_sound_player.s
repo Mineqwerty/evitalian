@@ -2827,6 +2827,8 @@ sound_ref .sound_at_field
 sound_ref .sound_ramiel_hurt
 sound_ref .sound_ramiel_beam
 sound_ref .sound_ramiel_idle
+sound_ref .sound_evi_bite
+sound_ref .sound_screaming
 #ifdef VERSION_JP
   sound_ref .sound_menu_enter_hole
   sound_ref .sound_menu_enter_hole
@@ -4942,8 +4944,24 @@ chan_setinstr 11
 chan_setlayer 0, .layer_AAAA
 chan_end
 
+.sound_evi_bite:
+chan_setbank 0
+chan_setinstr 12
+chan_setlayer 0, .layer_AAAA
+chan_end
+
+.sound_screaming:
+chan_setbank 0
+chan_setinstr 13
+chan_setlayer 0, .layer_AAAB
+chan_end
+
 .layer_AAAA:
   layer_note1 39, 0x100, 127
+  layer_end
+
+.layer_AAAB:
+  layer_note1 39, 0x200, 127
   layer_end
 
 .layer_1DD4:

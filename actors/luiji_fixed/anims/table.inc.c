@@ -11,5 +11,9 @@ const struct Animation *const luiji_fixed_anims[] = {
 
 	&luiji_fixed_anim_sneeze,
 
+	&luiji_fixed_anim_bendover,
+
+	&luiji_fixed_anim_choke,
+
 	NULL,
 };

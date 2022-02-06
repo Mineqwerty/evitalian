@@ -290,6 +290,10 @@ void bobomb_buddy_act_idle(void) {
     object_step();
     }
 
+    if (o->oSubAction == 1) {
+        obj_explode_and_spawn_coins(2, 1); 
+    }
+
     //if ((animFrame == 5) || (animFrame == 16))
         //cur_obj_play_sound_2(SOUND_OBJ_BOBOMB_WALK);
 

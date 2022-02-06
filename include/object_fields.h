@@ -1298,6 +1298,7 @@
 #define /*0x0F4*/ oSachielHealth                            OBJECT_FIELD_S32(0x1C)
 #define /*0x0F4*/ oBulletCounter                            OBJECT_FIELD_S32(0x1D)
 #define /*0x0F4*/ oObjSachielAT                            OBJECT_FIELD_OBJ(0x1E)
+#define /*0x0F4*/ oSachielInvFrames                            OBJECT_FIELD_S32(0x1F)
 
 //ramiel
 #define /*0x0F4*/ oObjRamielBeam                           OBJECT_FIELD_OBJ(0x1B)
