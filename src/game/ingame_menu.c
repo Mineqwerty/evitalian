@@ -1853,7 +1853,7 @@ s16 render_pause_courses_and_castle(void) {
         #endif
             #ifndef DISABLE_EXIT_COURSE
             if (exitCheck)
-                //render_pause_course_options(99, 93, &gDialogLineNum, 15);
+                render_pause_course_options(99, 93, &gDialogLineNum, 15);
             #endif
 
             if (gPlayer3Controller->buttonPressed & A_BUTTON

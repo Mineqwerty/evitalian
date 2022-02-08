@@ -8,7 +8,7 @@
 
 
 void bhv_ramiel_init(void) {
-    o->oRamielHealth = 10;
+    o->oRamielHealth = 50;
     //obj_set_hitbox(o, &sSachielHitbox);
 }
 
@@ -143,8 +143,8 @@ void ramiel_act_down(void) {
         case 1:
             o->oPosY += 50 * (o->oTimer % 3 - 1);
             knife = cur_obj_find_nearest_object_with_behavior(bhvEviKnifeHitbox, &dist2);
-            if (knife != NULL && dist2 < 1600.0f) {
-                o->oRamielHealth -= 10;
+            if (knife != NULL && dist2 < 4000.0f) {
+                o->oRamielHealth -= 15;
                 obj_mark_for_deletion(knife);
                 play_sound(SOUND_GENERAL_GRINDEL_ROLL, gGlobalSoundSource);
                 o->oAction = RAMIEL_ACT_HURT;
@@ -156,8 +156,8 @@ void ramiel_act_down(void) {
         break;
         case 2:
             knife = cur_obj_find_nearest_object_with_behavior(bhvEviKnifeHitbox, &dist2);
-            if (knife != NULL && dist2 < 1600.0f) {
-                o->oRamielHealth -= 10;
+            if (knife != NULL && dist2 < 4000.0f) {
+                o->oRamielHealth -= 15;
                 obj_mark_for_deletion(knife);
                 play_sound(SOUND_GENERAL_GRINDEL_ROLL, gGlobalSoundSource);
                 o->oAction = RAMIEL_ACT_HURT;
@@ -263,6 +263,9 @@ void bhv_drill_loop(void) {
     struct Object *bullet;
     f32 dist;
 
+    struct Object *knife;
+    f32 dist2;
+
     if (o->oTimer %15 == 0) {
         cur_obj_spawn_particles(&DrillStones);
     }
@@ -275,7 +278,24 @@ void bhv_drill_loop(void) {
         o->oDrillHealth -= 1;
         play_sound(SOUND_GENERAL_GRINDEL_ROLL, gGlobalSoundSource);
         o->oTimer = 0;
+        o->header.gfx.sharedChild = gLoadedGraphNodes[MODEL_RAMIEL_DRILL_HURT];
         
+    }
+
+    knife = cur_obj_find_nearest_object_with_behavior(bhvEviKnifeHitbox, &dist2);
+            if (knife != NULL && dist2 < 1000.0f) {
+                f32 dist3; 
+                struct Object *evi = cur_obj_find_nearest_object_with_behavior(bhvEviUnit, &dist3);
+                if (evi->oAction != 5) {
+                    evi->oForwardVel = -30.0f;
+                    evi->oAction = 6;
+                    play_sound(SOUND_ACTION_BONK, gGlobalSoundSource);
+                    
+                }
+            }
+
+    if (o->oTimer == 15) {
+        o->header.gfx.sharedChild = gLoadedGraphNodes[MODEL_RAMIEL_DRILL];
     }
 
     o->oMoveAngleYaw -= 0x200;
@@ -358,17 +378,20 @@ void bhv_ramiel_beam_hitbox_loop(void) {
 }
 
 void bhv_ramiel_shard_loop(void) {
-    if (o->oShardHealthCounter != gMarioState->enemyHealth) {
+    object_step();
+    f32 dist;  
+    struct Object *ramiel = cur_obj_find_nearest_object_with_behavior(bhvRamiel, &dist);
+    if (o->oShardHealthCounter != gMarioState->enemyHealth && ramiel && ramiel->oAction == RAMIEL_ACT_FIND_POINT && o->oDistanceToMario > 7000.0f) {
         o->oSubAction = 3;
         switch (o->oBehParams2ndByte) {
             case 0: 
-                if (gMarioState->enemyHealth < 41) {
+                if (gMarioState->enemyHealth < 51) {
                     o->header.gfx.sharedChild = gLoadedGraphNodes[MODEL_RAMIEL_SHARD];
                     o->oSubAction = 0;
                 }
             break;
             case 1: 
-                if (gMarioState->enemyHealth < 21) {
+                if (gMarioState->enemyHealth < 31) {
                     o->header.gfx.sharedChild = gLoadedGraphNodes[MODEL_RAMIEL_SHARD];
                     o->oSubAction = 0;
                 }
@@ -406,14 +429,18 @@ void bhv_ramiel_shard_loop(void) {
                 struct Object *evi = cur_obj_find_nearest_object_with_behavior(bhvEviUnit, &dist);
                 if (evi->oAction != 5) {
                     gMarioState->eviHealth -= 4;
-                    evi->oForwardVel = -150.0f;
+                    evi->oForwardVel = -30.0f;
                     evi->oAction = 6;
                     play_sound(SOUND_GENERAL_POUND_WOOD_POST, gGlobalSoundSource);
                     
                 }
+                
+                spawn_triangle_break_particles(8, MODEL_DIRT_ANIMATION, 2.0f, 4);
+                play_sound(SOUND_GENERAL_BREAK_BOX, gGlobalSoundSource);
                 o->oSubAction++;
             }
             if (o->oTimer >= 90) {
+                spawn_triangle_break_particles(8, MODEL_DIRT_ANIMATION, 2.0f, 4);
                 o->oSubAction++;
             }
         break;
@@ -424,6 +451,8 @@ void bhv_ramiel_shard_loop(void) {
             o->oPosZ = o->oHomeZ;
             o->oFaceAnglePitch = 0;
             o->oMoveAnglePitch = 0;
+            o->oVelY = 0.0f;
+            o->oForwardVel = 0.0f;
         break;
     }
 }

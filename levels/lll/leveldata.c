@@ -75,3 +75,4 @@
 #include "levels/lll/ramiel_charge/model.inc.c"
 #include "levels/lll/ramiel_beam/model.inc.c"
 #include "levels/lll/ramiel_shard/model.inc.c"
+#include "levels/lll/ramiel_drill_hurt/model.inc.c"

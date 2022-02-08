@@ -986,6 +986,11 @@ if (o->oNonPersistentCutsceneStep == 0) {
             gDialogIndex = 80;
         break;
         case 16:
+        reisalina = cur_obj_find_object_with_bparam_2nd_byte(bhvGenericNPC, 02);
+         if (reisalina) {
+            obj_mark_for_deletion(reisalina);
+            //o->oCutsceneStep += 1;
+        }
 
         break;
         case 17:

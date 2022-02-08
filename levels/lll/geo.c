@@ -51,3 +51,4 @@
 #include "levels/lll/ramiel_charge/geo.inc.c"
 #include "levels/lll/ramiel_beam/geo.inc.c"
 #include "levels/lll/ramiel_shard/geo.inc.c"
+#include "levels/lll/ramiel_drill_hurt/geo.inc.c"

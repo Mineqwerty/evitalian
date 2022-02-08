@@ -56,7 +56,7 @@ char *dialogs[] = {
     COLOR "191 75 222 0" SCALE "25" "K.O.O.P.A sent you? You'll have to\nspeak with E. Genddo in that case.\nI'm not familiar with K.O.O.P.A's affairs.",
     COLOR "99 84 84 0" SCALE "25" "Where might I find him?",
     COLOR "191 75 222 0" SCALE "25" "Last I knew, he was in\nTerminal Dogma. But that's off limits.",
-    COLOR "99 84 84 0" SCALE "25" "Ah, the place where you\nkeep Buppith, the key to ending\nhumanity, right?",
+    COLOR "99 84 84 0" SCALE "25" "Ah, the place where you\nkeep Bupith, the key to ending\nhumanity, right?",
     COLOR "191 75 222 0" SCALE "25" "Yeah, tha- wait what?\nHow did you know that?",
     COLOR "99 84 84 0" SCALE "25" "Bwahaha, thanks! Oh yeah,\nI may have forgotten to mention\na teensy detail...",
     COLOR "99 84 84 0" SCALE "25" "I'm one of the angels.\nSee ya later, suckers!",

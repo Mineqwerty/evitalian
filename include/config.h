@@ -15,7 +15,7 @@
 // -- ROM SETTINGS --
 // Internal ROM name. NEEDS TO BE **EXACTLY** 20 CHARACTERS. Can't be 19 characters, can't be 21 characters. You can fill it with spaces.
 // The end quote should be here:               "
-#define INTERNAL_ROM_NAME "SUPERMARIO64        "
+#define INTERNAL_ROM_NAME "NEONGENESISEVITALIAN"
 // Support Rumble Pak
 // Currently not recommended, as it may cause random crashes.
 //#define ENABLE_RUMBLE (1 || VERSION_SH)
@@ -213,7 +213,7 @@
 // Enable debug free move (DPad up to enter, A to exit)
 //#define ENABLE_DEBUG_FREE_MOVE
 // Custom debug mode. Press DPAD left to show the debug UI. Press DPAD right to enter the noclip mode.
-#define CUSTOM_DEBUG
+//#define CUSTOM_DEBUG
 // Include Puppyprint, a display library for text and large images. Also includes a custom, enhanced performance profiler.
 #define PUPPYPRINT
 #define PUPPYPRINT_DEBUG 1

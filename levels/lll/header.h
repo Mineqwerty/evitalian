@@ -143,4 +143,6 @@ extern const LevelScript level_lll_entry[];
 
 #include "levels/lll/ramiel_shard/geo_header.h"
 
+#include "levels/lll/ramiel_drill_hurt/geo_header.h"
+
 #endif

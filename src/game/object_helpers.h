@@ -196,6 +196,9 @@ void cur_obj_set_pos_via_transform(void);
 void cur_obj_spawn_particles(struct SpawnParticlesInfo *info);
 s16 cur_obj_reflect_move_angle_off_wall(void);
 
+f32 dist_between_objects_vertical_offset(struct Object *obj1, struct Object *obj2, f32 obj1YOffset);
+struct Object *ramiel_find_nearest_object_with_behavior(const BehaviorScript *behavior, f32 *dist);
+
 #define WAYPOINT_FLAGS_END -1
 #define WAYPOINT_FLAGS_INITIALIZED 0x8000
 #define WAYPOINT_MASK_00FF 0x00FF

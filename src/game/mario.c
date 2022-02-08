@@ -1713,7 +1713,6 @@ s32 execute_mario_action(UNUSED struct Object *obj) {
         gMarioState->marioBodyState->eyeState = MARIO_EYES_DEAD;
     }
 
-
     // Updates once per frame:
     vec3f_get_dist_and_lateral_dist_and_angle(gMarioState->prevPos, gMarioState->pos, &gMarioState->moveSpeed, &gMarioState->lateralSpeed, &gMarioState->movePitch, &gMarioState->moveYaw);
     vec3_copy(gMarioState->prevPos, gMarioState->pos);

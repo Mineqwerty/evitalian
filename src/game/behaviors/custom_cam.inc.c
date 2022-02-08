@@ -128,6 +128,7 @@ void bhv_custom_cam_volume_loop(void) {
                //COURSE SPECIFIC BEHAVIORS
                if (gCurrLevelNum == LEVEL_WF && o->oBehParams2ndByte == 7) {
                     o->oVolumeTimer += 1;
+                    gMarioState->health = 0x880;
 
                     gMarioState->pos[0] = o->oPosX;
                     gMarioState->pos[2] = o->oPosZ;

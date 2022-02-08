@@ -136,7 +136,7 @@
         "inst7": {
             "release_rate": 208,
             "envelope": "envelope7",
-            "sound": "1C"
+            "sound": "42_vibraphone"
         },
         "percussion": [
             {"release_rate": 10, "pan": 62, "envelope": "envelope8", "sound": {"sample": "06_kick_drum_1", "tuning": 0.210224}},

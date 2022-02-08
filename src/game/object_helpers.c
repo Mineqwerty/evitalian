@@ -255,6 +255,14 @@ f32 dist_between_objects(struct Object *obj1, struct Object *obj2) {
     return vec3_mag(d);
 }
 
+f32 dist_between_objects_vertical_offset(struct Object *obj1, struct Object *obj2, f32 obj1YOffset) {
+    register Vec3f d;
+    struct Object *offset1 = obj1;
+    offset1->oPosY += obj1YOffset;
+    vec3_diff(d, &obj2->oPosVec, &offset1->oPosVec);
+    return vec3_mag(d);
+}
+
 void cur_obj_forward_vel_approach_upward(f32 target, f32 increment) {
     if (o->oForwardVel >= target) {
         o->oForwardVel = target;
@@ -685,6 +693,33 @@ struct Object *cur_obj_find_nearest_object_with_behavior(const BehaviorScript *b
         if (obj->behavior == behaviorAddr) {
             if (obj->activeFlags != ACTIVE_FLAG_DEACTIVATED && obj != o) {
                 f32 objDist = dist_between_objects(o, obj);
+                if (objDist < minDist) {
+                    closestObj = obj;
+                    minDist = objDist;
+                }
+            }
+        }
+        obj = (struct Object *) obj->header.next;
+    }
+
+    *dist = minDist;
+    return closestObj;
+}
+
+struct Object *ramiel_find_nearest_object_with_behavior(const BehaviorScript *behavior, f32 *dist) {
+    uintptr_t *behaviorAddr = segmented_to_virtual(behavior);
+    struct Object *closestObj = NULL;
+    struct Object *obj;
+    struct ObjectNode *listHead;
+    f32 minDist = 0x20000;
+
+    listHead = &gObjectLists[get_object_list_from_behavior(behaviorAddr)];
+    obj = (struct Object *) listHead->next;
+
+    while (obj != (struct Object *) listHead) {
+        if (obj->behavior == behaviorAddr) {
+            if (obj->activeFlags != ACTIVE_FLAG_DEACTIVATED && obj != o) {
+                f32 objDist = dist_between_objects_vertical_offset(o, obj, 3000.0f);
                 if (objDist < minDist) {
                     closestObj = obj;
                     minDist = objDist;

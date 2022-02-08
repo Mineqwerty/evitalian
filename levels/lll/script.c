@@ -39,6 +39,7 @@ const LevelScript level_lll_entry[] = {
 	LOAD_MODEL_FROM_GEO(MODEL_RAMIEL_CHARGE, ramiel_charge_geo), 
 	LOAD_MODEL_FROM_GEO(MODEL_RAMIEL_BEAM, ramiel_beam_geo), 
 	LOAD_MODEL_FROM_GEO(MODEL_RAMIEL_SHARD, ramiel_shard_geo), 
+	LOAD_MODEL_FROM_GEO(MODEL_RAMIEL_DRILL_HURT, ramiel_drill_hurt_geo), 
 
 	/* Fast64 begin persistent block [level commands] */
 	/* Fast64 end persistent block [level commands] */
